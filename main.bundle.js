@@ -580,7 +580,7 @@ var ChartListComponent = (function () {
     };
     ChartListComponent.prototype.add = function () {
         this._edit.flag = false;
-        window.location.href = this._chartlist.Location_URL + '#/center/chartset';
+        this._router.navigate(['/center/chartset']);
     };
     return ChartListComponent;
 }());
@@ -682,7 +682,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".btn_green {\n  border-color: #85bb44; }\n\n.btn_blue {\n  border-color: #398fcb; }\n\n.btn_yellow {\n  border-color: #ffc23d; }\n\n.item {\n  border-bottom: 1px dashed #bcbcbc;\n  width: 80%;\n  margin-left: 120px;\n  height: 50px;\n  position: relative;\n  cursor: pointer; }\n\n.button_position {\n  position: absolute;\n  right: 0px;\n  top: 50%;\n  margin-top: -17px; }\n\n.text_position {\n  line-height: 50px;\n  font-size: 14px; }\n\n.btn_margin {\n  padding-left: 15px;\n  padding-right: 15px;\n  margin-left: 10px;\n  color: #515151; }\n\n.item:hover {\n  border-bottom: 2px solid #108ee9;\n  background-color: #f7fcff; }\n\n.icon-linechart {\n  background-image: url(\"/assets/img/line_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-barchart {\n  background-image: url(\"/assets/img/bar_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-guagechart {\n  background-image: url(\"/assets/img/gauge.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-piechart {\n  background-image: url(\"/assets/img/pie_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-stripchart {\n  background-image: url(\"/assets/img/strip_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-mapchart {\n  background-image: url(\"/assets/img/map.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n", ""]);
+exports.push([module.i, ".btn_green {\n  border-color: #85bb44; }\n\n.btn_blue {\n  border-color: #398fcb; }\n\n.btn_yellow {\n  border-color: #ffc23d; }\n\n.item {\n  border-bottom: 1px dashed #bcbcbc;\n  width: 80%;\n  margin-left: 120px;\n  height: 50px;\n  position: relative;\n  cursor: pointer; }\n\n.button_position {\n  position: absolute;\n  right: 0px;\n  top: 50%;\n  margin-top: -17px; }\n\n.text_position {\n  line-height: 50px;\n  font-size: 14px; }\n\n.btn_margin {\n  padding-left: 15px;\n  padding-right: 15px;\n  margin-left: 10px;\n  color: #515151; }\n\n.item:hover {\n  border-bottom: 2px solid #108ee9;\n  background-color: #f7fcff; }\n\n.icon-linechart {\n  background-image: url(\"assets/img/line_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-barchart {\n  background-image: url(\"assets/img/bar_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-guagechart {\n  background-image: url(\"assets/img/gauge.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-piechart {\n  background-image: url(\"assets/img/pie_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-stripchart {\n  background-image: url(\"assets/img/strip_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-mapchart {\n  background-image: url(\"assets/img/map.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n", ""]);
 
 // exports
 
@@ -918,7 +918,7 @@ var HomeListComponent = (function () {
     HomeListComponent.prototype.add = function () {
         this._edit.flag = false;
         this._edit.isViewed(true);
-        window.location.href = this._chartlist.Location_URL + '#/center/homeset';
+        this._router.navigate(['/center/homeset']);
     };
     HomeListComponent.prototype.Deleteid_ChildEvent = function (item) {
         this._chartlist.Delete_homelistitem(item);
@@ -1016,7 +1016,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".btn_green {\n  border-color: #85bb44; }\n\n.btn_blue {\n  border-color: #398fcb; }\n\n.btn_yellow {\n  border-color: #ffc23d; }\n\n.item {\n  border-bottom: 1px dashed #bcbcbc;\n  width: 80%;\n  margin-left: 120px;\n  height: 50px;\n  position: relative;\n  cursor: pointer; }\n\n.button_position {\n  position: absolute;\n  right: 0px;\n  top: 50%;\n  margin-top: -17px; }\n\n.text_position {\n  line-height: 50px;\n  font-size: 14px; }\n\n.btn_margin {\n  padding-left: 15px;\n  padding-right: 15px;\n  margin-left: 10px;\n  color: #515151; }\n\n.item:hover {\n  border-bottom: 2px solid #108ee9;\n  background-color: #f7fcff; }\n\n.icon-linechart {\n  background-image: url(\"/assets/img/line_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-barchart {\n  background-image: url(\"/assets/img/bar_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-guagechart {\n  background-image: url(\"/assets/img/gauge.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-piechart {\n  background-image: url(\"/assets/img/pie_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-stripchart {\n  background-image: url(\"/assets/img/strip_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-mapchart {\n  background-image: url(\"/assets/img/map.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.btn_red {\n  border-color: #f28686; }\n", ""]);
+exports.push([module.i, ".btn_green {\n  border-color: #85bb44; }\n\n.btn_blue {\n  border-color: #398fcb; }\n\n.btn_yellow {\n  border-color: #ffc23d; }\n\n.item {\n  border-bottom: 1px dashed #bcbcbc;\n  width: 80%;\n  margin-left: 120px;\n  height: 50px;\n  position: relative;\n  cursor: pointer; }\n\n.button_position {\n  position: absolute;\n  right: 0px;\n  top: 50%;\n  margin-top: -17px; }\n\n.text_position {\n  line-height: 50px;\n  font-size: 14px; }\n\n.btn_margin {\n  padding-left: 15px;\n  padding-right: 15px;\n  margin-left: 10px;\n  color: #515151; }\n\n.item:hover {\n  border-bottom: 2px solid #108ee9;\n  background-color: #f7fcff; }\n\n.icon-linechart {\n  background-image: url(\"assets/img/line_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-barchart {\n  background-image: url(\"assets/img/bar_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-guagechart {\n  background-image: url(\"assets/img/gauge.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-piechart {\n  background-image: url(\"assets/img/pie_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-stripchart {\n  background-image: url(\"assets/img/strip_chart.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.icon-mapchart {\n  background-image: url(\"assets/img/map.png\");\n  width: 30px;\n  height: 30px;\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  position: absolute;\n  margin-top: 10px; }\n\n.btn_red {\n  border-color: #f28686; }\n", ""]);
 
 // exports
 
@@ -1072,7 +1072,7 @@ var HomeListItemComponent = (function () {
             var edit_data = data.data;
             _this._edit.isEdited(true, edit_data);
             _this._edit.isViewed(true);
-            window.location.href = _this._chartlist.Location_URL + '#/center/homeset';
+            _this._router.navigate(['/center/homeset']);
         });
     };
     HomeListItemComponent.prototype.deleteitem = function () {
@@ -1085,7 +1085,7 @@ var HomeListItemComponent = (function () {
             var edit_data = data.data;
             _this._edit.isEdited(true, edit_data);
             _this._edit.isViewed(false);
-            window.location.href = _this._chartlist.Location_URL + '#/center/homeview';
+            _this._router.navigate(['/center/homeview']);
         });
     };
     return HomeListItemComponent;
@@ -1718,7 +1718,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home-navbar/home-navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"baneer-style\">\n    <div class=\"banner-img\">\n        <a class=\"logo-img \" href=\"index.html\">\n            <img src=\"/assets/img/logo.png\" alt=\"fis'\" width=\"100\">\n        </a>\n    </div>\n    <div>\n        <ul class=\"global\">\n            <li id=\"homelist\" (click)=\"SelectedStyle(this)\">\n                <a [routerLink]=\"['/homelist']\"><i class=\"fa fa-paste\"></i > 页面配置</a>\n            </li>\n            <li id=\"chartlist\">\n                <a [routerLink]=\"['/center/chartlist']\"> <i class=\"fa fa-line-chart\"></i> 图表配置</a>\n            </li>\n            <li id=\"sourcelist\"><a [routerLink]=\"['/sourcelist']\"><i class=\"fa fa-cubes\"></i> 数据源配置</a></li>\n        </ul>\n    </div>\n</div>\n<div class=\"baneer-bottom\"></div>\n"
+module.exports = "<div class=\"baneer-style\">\n    <div class=\"banner-img\">\n        <a class=\"logo-img \" href=\"index.html\">\n            <img src=\"assets/img/logo.png\" alt=\"fis'\" width=\"100\">\n        </a>\n    </div>\n    <div>\n        <ul class=\"global\">\n            <li id=\"homelist\" (click)=\"SelectedStyle(this)\">\n                <a [routerLink]=\"['/homelist']\"><i class=\"fa fa-paste\"></i > 页面配置</a>\n            </li>\n            <li id=\"chartlist\">\n                <a [routerLink]=\"['/center/chartlist']\"> <i class=\"fa fa-line-chart\"></i> 图表配置</a>\n            </li>\n            <li id=\"sourcelist\"><a [routerLink]=\"['/sourcelist']\"><i class=\"fa fa-cubes\"></i> 数据源配置</a></li>\n        </ul>\n    </div>\n</div>\n<div class=\"baneer-bottom\"></div>\n"
 
 /***/ }),
 
@@ -1833,6 +1833,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__template_template_1_template_1_component__ = __webpack_require__("../../../../../src/app/home/template/template-1/template-1.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__template_template_2_template_2_component__ = __webpack_require__("../../../../../src/app/home/template/template-2/template-2.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_navbar_home_navbar_component__ = __webpack_require__("../../../../../src/app/home-navbar/home-navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeSetComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1850,10 +1851,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomeSetComponent = (function () {
-    function HomeSetComponent(_chartlist, _edit) {
+    function HomeSetComponent(_chartlist, _edit, _router) {
         this._chartlist = _chartlist;
         this._edit = _edit;
+        this._router = _router;
         this.menu_items = [
             {
                 'id': 'menu_template1',
@@ -1942,7 +1945,7 @@ var HomeSetComponent = (function () {
             this.homeset.chart_arr = this.chart_arr;
             this._chartlist.Update_homelistitem(this.homeset);
         }
-        window.location.href = this._chartlist.Location_URL + '#/center/homelist';
+        this._router.navigate(['/center/homelist']);
     };
     return HomeSetComponent;
 }());
@@ -1965,10 +1968,10 @@ HomeSetComponent = __decorate([
         styles: [__webpack_require__("../../../../../src/app/home/home-set/home-set.component.scss")],
         providers: [__WEBPACK_IMPORTED_MODULE_2__center_chart_list_service__["a" /* ChartlistService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__center_chart_list_service__["a" /* ChartlistService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__center_chart_list_service__["a" /* ChartlistService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__share_edit_list_service__["a" /* EditService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__share_edit_list_service__["a" /* EditService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__center_chart_list_service__["a" /* ChartlistService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__center_chart_list_service__["a" /* ChartlistService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__share_edit_list_service__["a" /* EditService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__share_edit_list_service__["a" /* EditService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__angular_router__["b" /* Router */]) === "function" && _f || Object])
 ], HomeSetComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=home-set.component.js.map
 
 /***/ }),
@@ -2915,7 +2918,7 @@ var BarChartSetComponent = (function () {
         else if (this.flag === true) {
             this._chartlist.Update_chartlistitem(this.barchartset);
         }
-        window.location.href = this._chartlist.Location_URL + '#/center/chartlist';
+        this._router.navigate(['/center/chartlist']);
     };
     BarChartSetComponent.prototype.Load_resouce = function () {
         var _this = this;
@@ -3416,7 +3419,7 @@ var GaugeChartSetComponent = (function () {
         else if (this.flag === true) {
             this._chartlist.Update_chartlistitem(this.gaugechartset);
         }
-        window.location.href = this._chartlist.Location_URL + '#/center/chartlist';
+        this._router.navigate(['/center/chartlist']);
     };
     GaugeChartSetComponent.prototype.Load_resouce = function () {
         var _this = this;
@@ -3969,7 +3972,7 @@ var LineChartSetComponent = (function () {
         else if (this.flag === true) {
             this._chartlist.Update_chartlistitem(this.linechartset);
         }
-        window.location.href = this._chartlist.Location_URL + '#/center/chartlist';
+        this._router.navigate(['/center/chartlist']);
     };
     LineChartSetComponent.prototype.Load_resouce = function () {
         var _this = this;
@@ -4517,7 +4520,7 @@ var MapChartSetComponent = (function () {
         else if (this.flag === true) {
             this._chartlist.Update_chartlistitem(this.mapchartset);
         }
-        window.location.href = this._chartlist.Location_URL + '#/center/chartlist';
+        this._router.navigate(['/center/chartlist']);
     };
     MapChartSetComponent.prototype.Piece_Index_Set = function (piece_section) {
         this.piece_index = piece_section - 1;
@@ -5132,7 +5135,7 @@ var PieChartSetComponent = (function () {
         else if (this.flag === true) {
             this._chartlist.Update_chartlistitem(this.piechartset);
         }
-        window.location.href = this._chartlist.Location_URL + '#/center/chartlist';
+        this._router.navigate(['/center/chartlist']);
     };
     PieChartSetComponent.prototype.Color_Index_Set = function (color_section) {
         this.color_index = color_section - 1;
@@ -5834,7 +5837,7 @@ var StripchartSetComponent = (function () {
         else if (this.flag === true) {
             this._chartlist.Update_chartlistitem(this.stripchartset);
         }
-        window.location.href = this._chartlist.Location_URL + '#/center/chartlist';
+        this._router.navigate(['/center/chartlist']);
     };
     StripchartSetComponent.prototype.Load_resouce = function () {
         var _this = this;
