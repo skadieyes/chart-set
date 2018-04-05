@@ -1,0 +1,41 @@
+   [{
+       "Title_Text": "Ksui", //标题名字
+       "Title_Position": "center", //标题位置
+       "Title_Fontfamily": "微软雅黑", //标题字体
+       "Title_Color": "#515151", //标题字颜色
+       "Title_Fontweight": "normal", //标题大小
+
+       "Chart_Color": "#EEE67f", //图表颜色
+
+       "Xaxis_Type": "category", //X轴类型(不允许设置)
+       "Xaxis_Data": [1, 2, 3, 4, 5, 6, 7], //X轴初始数据（没必要设置）
+       "Xaxis_Interval": 0, //X轴 角度（没必要设置）
+
+       "Yaxis_Type": "value", //y轴类型(不允许设置)
+       "Yaxis_Name": "名字", //y轴名字
+       "Yaxis_Min": 0, //min
+       "Yaxis_Max": null, //max
+
+       "Series_Name": "图例", //图形名字
+       "Series_Type": "line", //图形类型(不允许设置)
+       "Series_Data": [0, 0, 0, 0, 0, 0, 0], //图形初始数据（没必要设置）
+
+       "Series_SymbolSize": 60, //最大值最小值控件大小，设为0则没有
+       "Series_Type_1": "max",
+       "Series_Name_1": "最大值", //最大值控件名字
+       "Series_Type_2": "min",
+       "Series_Name_2": "最小值", //最小值控件名字
+
+       "Series_SymbolSize2": "20", //平均值控件大小
+       "Series_Type_3": "average",
+       "Series_Name_3": "平均值", //平均值控件名字
+
+       "Tooltip_Trigger": "axis", //数据项触发 axis为坐标轴触发 item为数据项图形触发 none为什么都不触发
+       "Tooltip_Formatter": "{a} <br/>{b} : {c}", //触发项文本
+
+       "Legend_Data": "图例", //图例名
+       "Legend_Left": "6%", //图例位置
+       "Legend_Top": "1%",
+       "Legend_Show": true //是否显示图例 true or false
+
+   }]

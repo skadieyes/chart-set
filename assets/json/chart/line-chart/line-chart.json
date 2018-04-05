@@ -1,0 +1,20 @@
+﻿   [{
+       "Title_Text": "Ksui",
+       "Title_Position": "center",
+       "Title_Fontfamily": "微软雅黑",
+       "Title_Color": "#515151",
+       "Title_Fontweight": "normal",
+
+       "Chart_Color": "#EEE67f",
+
+       "Xaxis_Type": "category",
+       "Xaxis_Data": [1, 2, 3, 4, 5, 6, 7],
+
+       "Yaxis_Type": "value",
+
+       "Series_Name": "图例",
+       "Series_Type": "line",
+       "Series_Stack": "总量",
+       "Series_Data": [0, 0, 0, 0, 0, 0, 0]
+
+   }]

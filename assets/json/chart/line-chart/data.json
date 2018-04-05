@@ -1,0 +1,9 @@
+[
+    { "VALUE": 350, "NAME": "星期一" },
+    { "VALUE": 300, "NAME": "星期二" },
+    { "VALUE": 20, "NAME": "星期三" },
+    { "VALUE": 120, "NAME": "星期四" },
+    { "VALUE": 10, "NAME": "星期五" },
+    { "VALUE": 200, "NAME": "星期六" },
+    { "VALUE": 90, "NAME": "星期天" }
+]

@@ -1,0 +1,6 @@
+[
+    { "value": "assets/json/chart/line-chart/data.json", "name": "测试数据一" },
+    { "value": "assets/json/chart/line-chart/data1.json", "name": "测试数据二" },
+    { "value": "assets/json/chart/line-chart/data3.json", "name": "测试数据三" },
+    { "value": "assets/json/chart/line-chart/data4.json", "name": "地图数据" }
+]

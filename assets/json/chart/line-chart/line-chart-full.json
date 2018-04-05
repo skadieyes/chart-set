@@ -1,0 +1,41 @@
+﻿   [{
+       "Title_Text": "Ksui",
+       "Title_Position": "center",
+       "Title_Fontfamily": "微软雅黑",
+       "Title_Color": "#525151",
+       "Title_Fontweight": "normal",
+
+       "Chart_Color": "#398fcb",
+
+       "Xaxis_Type": "category",
+       "Xaxis_Data": [1, 2, 3, 4, 5, 6, 7],
+       "Xaxis_Interval": 0,
+
+       "Yaxis_Type": "value",
+       "Yaxis_Name": "名字",
+       "Yaxis_Min": 0,
+       "Yaxis_Max": null,
+
+       "Series_Name": "图例",
+       "Series_Type": "line",
+       "Series_Data": [0, 0, 0, 0, 0, 0, 0],
+
+       "Series_SymbolSize": 40,
+       "Series_Type_1": "max",
+       "Series_Name_1": "最大值",
+       "Series_Type_2": "min",
+       "Series_Name_2": "最小值",
+
+       "Series_SymbolSize2": 2,
+       "Series_Type_3": "average",
+       "Series_Name_3": "平均值",
+
+       "Tooltip_Trigger": "axis",
+       "Tooltip_Formatter": "{a} <br/>{b} : {c}",
+
+       "Legend_Data": "图例",
+       "Legend_Left": "6%",
+       "Legend_Top": "2%",
+       "Legend_Show": true
+
+   }]
