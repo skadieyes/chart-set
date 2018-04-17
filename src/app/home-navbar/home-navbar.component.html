@@ -1,0 +1,19 @@
+<div class="baneer-style">
+    <div class="banner-img">
+        <a class="logo-img " href="index.html">
+            <img src="/assets/img/logo.png" alt="cst'" width="100">
+        </a>
+    </div>
+    <div>
+        <ul class="global">
+            <li id="homelist" (click)="SelectedStyle(this)">
+                <a [routerLink]="['/homelist']"><i class="fa fa-paste"></i > 页面配置</a>
+            </li>
+            <li id="chartlist">
+                <a [routerLink]="['/center/chartlist']"> <i class="fa fa-line-chart"></i> 图表配置</a>
+            </li>
+            <li id="sourcelist"><a [routerLink]="['/sourcelist']"><i class="fa fa-cubes"></i> 数据源配置</a></li>
+        </ul>
+    </div>
+</div>
+<div class="baneer-bottom"></div>

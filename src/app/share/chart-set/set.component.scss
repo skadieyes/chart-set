@@ -1,0 +1,140 @@
+.type_menu {
+    margin-left: 20px;
+    margin-right: 20px;
+    position: absolute;
+    width: 280px;
+    height: 98%;
+    transition: width 0.7s;
+    -moz-transition: width 0.7s;
+    /* Firefox 4 */
+    -webkit-transition: width 0.7s;
+    /* Safari 和 Chrome */
+    -o-transition: width 0.7s;
+}
+
+.chart_menu {
+
+    cursor: pointer;
+}
+.menu-child{
+    font-size: 14px;
+}
+.type_menu_small {
+    margin-left: 20px;
+    margin-right: 20px;
+    position: absolute;
+    width: 70px;
+    height: 98%;
+    transition: width 0.7s;
+    -moz-transition: width 0.7s;
+    /* Firefox 4 */
+    -webkit-transition: width 0.7s;
+    /* Safari 和 Chrome */
+    -o-transition: width 0.7s;
+}
+
+.chart_menu_big {
+    position: absolute;
+    left: 80px;
+    right: 0px;
+    height: 100%;
+    cursor: pointer;
+    transition: left 0.7s;
+    -moz-transition: left 0.7s;
+    /* Firefox 4 */
+    -webkit-transition: left 0.7s;
+    /* Safari 和 Chrome */
+    -o-transition: left 0.7s;
+}
+
+.text_style {
+    display: inline;
+    font-size: 15px;
+    color: #515151;
+    padding-left: 10px;
+}
+
+.panel-box {
+    border: 1px solid #c3c2c2;
+}
+
+.nav_leveltwo {
+    padding-left: 30px;
+}
+
+.panel-cst {
+    background-color: #85bb44;
+    color: #fff;
+}
+
+.chevron-icon {
+    cursor: pointer;
+}
+
+.chevron-icon:hover {
+    color: #57930f;
+}
+
+.nav li a {
+    color: #515151;
+    border-radius: 0;
+    transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    /* Firefox 4 */
+    -webkit-transition: background 0.2s;
+    /* Safari 和 Chrome */
+    -o-transition: background 0.2s;
+}
+
+.nav li a:hover,
+.nav li a:active {
+    background: #f3fce8;
+}
+
+.nav li a:focus {
+    background: #f3fce8;
+}
+
+.img_margin {
+    margin-right: 30px;
+}
+
+.set_body {
+    position: relative;
+    min-width: 1200px;
+}
+
+#type_panel {
+    height: 100%;
+}
+
+.img_position {
+    margin-right: 10px;
+}
+
+.a_position {
+    padding-left: 30px;
+}
+
+.s_img_position {
+    margin-left: 0px;
+}
+
+.icon_center {
+    text-align: center;
+}
+.set-layout{
+    margin:30px 15px;
+    padding:15px;
+    background: #fff;
+    height: calc(100% - 120px);
+}
+.menu-icon{
+    font-size: 14px;
+    width: 20px;
+    padding-right: 5px;
+}
+.set-content{
+    padding: 0;
+    min-height: 280px;
+}

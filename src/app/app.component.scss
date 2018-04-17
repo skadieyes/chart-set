@@ -1,0 +1,78 @@
+html,
+body,
+div {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.panel-box {
+    position: relative;
+    width: 98%;
+    margin: 30 auto 0 auto;
+    padding: 0;
+}
+
+.colo_div {
+    z-index: 100000;
+    width: 200px;
+    height: 300px;
+}
+
+.btn_box {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    width: 380px;
+    right: 0;
+}
+
+.chartbox {
+    margin: 0px;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 380px;
+    height: 100%;
+}
+
+.chartsetbox {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.linechart-set {
+    overflow: auto;
+    width: 380px;
+    right: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.panel-cst {
+    background-color: #85bb44;
+    color: #fff;
+}
+
+.coll-href {
+    text-decoration: none
+}
+
+.control-label {
+    font-weight: normal;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.form-group {
+    padding-top: 30px;
+}
+
+.label_two {
+    padding-left: 15px;
+}
+
+#chartset_panel {
+    height: 98%;
+}

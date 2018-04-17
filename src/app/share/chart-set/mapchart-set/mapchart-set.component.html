@@ -1,0 +1,606 @@
+<div class="panel  panel-box" id="chartset_panel">
+    <div class="chartbox">
+        <cst-mapchart [mapchart]="mapchartset">
+        </cst-mapchart>
+    </div>
+
+
+    <div class="chartsetbox">
+        <div class="mapchart-set overflow">
+            <div class="panel-group" id="accordion">
+                <div class="panel ">
+                    <div class="panel-heading coll-panel-one panel-cst">
+                        <p class="panel-title">
+                            <a class="coll-href" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                数据设置
+                            </a>
+                        </p>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+
+                            <div class="form-group">
+
+                                <label for="Data_source" class="col-sm-3 control-label  ">
+                                    <p>数据源</p>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_source" required [ngModel]="mapchartset.Data_source" (ngModelChange)="mapchartset.Data_source=$event;select_data()"
+                                        name="Data_source">
+                                        <option *ngFor="let Data_source of Data_sources" [value]="Data_source.value">{{Data_source.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="Data_name" class="col-sm-3 control-label  ">
+                                    <p class="label_two">省份名</p>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_name" required [(ngModel)]="mapchartset.Data_name" (ngModelChange)="mapchartset.Data_name=$event;select_data_valuename(mapchartset.Data_name,mapchartset.Data_valuename)"
+                                        name="Data_name">
+                                        <option *ngFor="let Data_name of Data_names" [value]="Data_name">{{Data_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="Data_valuename" class="col-sm-3 control-label  ">
+                                    <p class="label_two">数值</p>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_valuename" required [ngModel]="mapchartset.Data_valuename" (ngModelChange)="mapchartset.Data_valuename=$event;select_data_valuename(mapchartset.Data_name,mapchartset.Data_valuename)"
+                                        name="Data_valuename">
+                                        <option *ngFor="let Data_valuename of Data_valuenames" [value]="Data_valuename">{{Data_valuename}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel ">
+                    <div class="panel-heading panel-cst coll-panel-two">
+                        <p class="panel-title">
+                            <a class="coll-href" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                配置项
+                            </a>
+                        </p>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            <form>
+
+
+                                <div class="form-group">
+                                    <label for="Chart_BackgroundColor" class="col-sm-3 control-label ">
+                                        <p>背景</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.Chart_BackgroundColor"
+                                            class="form-control" id="Chart_BackgroundColor" required [(ngModel)]="mapchartset.Chart_BackgroundColor"
+                                            name="Chart_BackgroundColor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Text" class="col-sm-3 control-label">标题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Title_Text" required [(ngModel)]="mapchartset.Title_Text" name="name" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Position" class="col-sm-3 control-label  ">
+                                        <p class="label_two">位置</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Position" required [(ngModel)]="mapchartset.Title_Position" name="title_position">
+                                            <option *ngFor="let position of title_positions" [value]="position.value">{{position.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Fontfamily" class="col-sm-3 control-label  ">
+                                        <p class="label_two">字体</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Fontfamily" required [(ngModel)]="mapchartset.Title_Fontfamily" name="fontfamily">
+                                            <option *ngFor="let fontfamily of fontfamilys" [value]="fontfamily">{{fontfamily}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.Title_Color"
+                                            class="form-control" id="Title_Color" required [(ngModel)]="mapchartset.Title_Color"
+                                            name="color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Fontweight" class="col-sm-3 control-label  ">
+                                        <p class="label_two">粗细</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Fontweight" required [(ngModel)]="mapchartset.Title_Fontweight" name="fontweight">
+                                            <option *ngFor="let fontweight of Title_Fontweights" [value]="fontweight">{{fontweight}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Legend_Show" class="col-sm-3 control-label">
+                                        <p>图形</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Name" class="col-sm-3 control-label">
+                                        <p class="label_two">名字</p>
+                                    </label>
+                                    <div class="col-sm-8">
+
+                                        <input type="text" class="form-control" id="Series_Name" required [(ngModel)]="mapchartset.Series_Name" name="Series_Name"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Item" class="col-sm-12 control-label">
+                                        <p class="label_two">普通状态</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Item_Normal_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.Series_Item_Normal_Color"
+                                            class="form-control" required [(ngModel)]="mapchartset.Series_Item_Normal_Color"
+                                            name="Series_Item_Normal_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Item" class="col-sm-12 control-label">
+                                        <p class="label_two">高亮状态</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Item_Emphasis_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.Series_Item_Emphasis_Color"
+                                            class="form-control" required [(ngModel)]="mapchartset.Series_Item_Emphasis_Color"
+                                            name="Series_Item_Emphasis_Color" #name="ngModel">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Lable" class="col-sm-12 control-label">
+                                        <p>文本</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Lable" class="col-sm-12 control-label">
+                                        <p class="label_two">普通状态</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Series_Lable_Normal_show" class="col-sm-3 control-label  ">
+                                        <p class="label_two">显示</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Lable_Normal_show" required [(ngModel)]="mapchartset.Series_Lable_Normal_show" name="Series_Lable_Normal_show">
+                                            <option *ngFor="let Series_Lable_Normal_show of Series_Lable_Normal_shows" [value]="Series_Lable_Normal_show.value">{{Series_Lable_Normal_show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Lable_Normal_Text_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">字色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.Series_Lable_Normal_Text_Color"
+                                            class="form-control" required [(ngModel)]="mapchartset.Series_Lable_Normal_Text_Color"
+                                            name="Series_Lable_Normal_Text_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Lable_Normal_Text_Fontsize" class="col-sm-3 control-label">
+                                        <p class="label_two">字体</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Lable_Normal_Text_Fontsize" required [(ngModel)]="mapchartset.Series_Lable_Normal_Text_Fontsize"
+                                            name="Series_Lable_Normal_Text_Fontsize" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Lable" class="col-sm-12 control-label">
+                                        <p class="label_two">高亮状态</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Series_Lable_Emphasis_show" class="col-sm-3 control-label  ">
+                                        <p class="label_two">显示</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Lable_Emphasis_show" required [(ngModel)]="mapchartset.Series_Lable_Emphasis_show"
+                                            name="Series_Lable_Emphasis_show">
+                                            <option *ngFor="let Series_Lable_Emphasis_show of Series_Lable_Emphasis_shows" [value]="Series_Lable_Emphasis_show.value">{{Series_Lable_Emphasis_show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Lable_Emphasis_Text_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">字色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.Series_Lable_Emphasis_Text_Color"
+                                            class="form-control" required [(ngModel)]="mapchartset.Series_Lable_Emphasis_Text_Color"
+                                            name="Series_Lable_Emphasis_Text_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Lable_Emphasis_Text_Fontsize" class="col-sm-3 control-label">
+                                        <p class="label_two">字体</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Lable_Emphasis_Text_Fontsize" required [(ngModel)]="mapchartset.Series_Lable_Emphasis_Text_Fontsize"
+                                            name="Series_Lable_Emphasis_Text_Fontsize" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="form-group">
+                                        <label for="Legend_Show" class="col-sm-12 control-label">
+                                            <p>分段型组件</p>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <label for="VisualMap_Piece_Show" class="col-sm-3 control-label  ">
+                                            <p class="label_two">显示</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" id="VisualMap_Piece_Show" required [(ngModel)]="mapchartset.VisualMap_Piece_Show" name="VisualMap_Piece_Show">
+                                                <option *ngFor="let VisualMap_Piece_Show of VisualMap_Piece_Shows" [value]="VisualMap_Piece_Show.value">{{VisualMap_Piece_Show.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <label for="VisualMap_Piece_Inverse" class="col-sm-3 control-label  ">
+                                            <p class="label_two">顺序</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" id="VisualMap_Piece_Inverse" required [(ngModel)]="mapchartset.VisualMap_Piece_Inverse" name="VisualMap_Piece_Inverse">
+                                                <option *ngFor="let VisualMap_Piece_Inverse of VisualMap_Piece_Inverses" [value]="VisualMap_Piece_Inverse.value">{{VisualMap_Piece_Inverse.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="Pieces" class="col-sm-3 control-label ">
+                                            <p class="label_two">分段</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="Pieces" required [(ngModel)]="Pieces" name="Pieces" (blur)="Create_Pieces(Pieces)"
+                                                    #name="ngModel">
+                                                <span class="input-group-addon">段</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="piece_section" class="col-sm-3 control-label ">
+                                            <p class="label_two">段</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">第</span>
+                                                <input type="text" class="form-control" id="piece_section" required [(ngModel)]="piece_section" name="piece_section" (blur)="Piece_Index_Set(piece_section)"
+                                                    #name="ngModel">
+                                                <span class="input-group-addon">段</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="VisualMap_Piece_Pieces" class="col-sm-3 control-label">
+                                            <p class="label_two">最小值</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="VisualMap_Piece_Pieces" required [(ngModel)]="piece_min" (blur)="Piece_Min_Set(piece_index,piece_min)"
+                                                name="VisualMap_Piece_Min" #name="ngModel">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="VisualMap_Piece_Pieces" class="col-sm-3 control-label">
+                                            <p class="label_two">最大值</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="VisualMap_Piece_Pieces" required [(ngModel)]="piece_max" (blur)="Piece_Max_Set(piece_index,piece_max)"
+                                                name="VisualMap_Piece_Max" #name="ngModel">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="Piece_Color" class="col-sm-3 control-label ">
+                                            <p class="label_two">颜色</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.VisualMap_Piece_Pieces[piece_index].color"
+                                                class="form-control" id="Piece_Color" required [(ngModel)]="mapchartset.VisualMap_Piece_Pieces[piece_index].color"
+                                                name="Piece_Color" #name="ngModel" (blur)="Piece_ColorSet()">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="VisualMap_Piece_Left" class="col-sm-3 control-label">
+                                            <p class="label_two">左边距</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="VisualMap_Piece_Left" required [(ngModel)]="mapchartset.VisualMap_Piece_Left"
+                                                name="VisualMap_Piece_Left" #name="ngModel">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="VisualMap_Piece_Top" class="col-sm-3 control-label">
+                                            <p class="label_two">上边距</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="VisualMap_Piece_Top" required [(ngModel)]="mapchartset.VisualMap_Piece_Top" name="VisualMap_Piece_Top"
+                                                #name="ngModel">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="VisualMap_Piece_Text_Color" class="col-sm-3 control-label ">
+                                            <p class="label_two">字色</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.VisualMap_Piece_Text_Color"
+                                                class="form-control" required [(ngModel)]="mapchartset.VisualMap_Piece_Text_Color"
+                                                name="VisualMap_Piece_Text_Color" #name="ngModel">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="VisualMap_Piece_Text_Fontsize" class="col-sm-3 control-label">
+                                            <p class="label_two">字体</p>
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="VisualMap_Piece_Text_Fontsize" required [(ngModel)]="mapchartset.VisualMap_Piece_Text_Fontsize"
+                                                name="VisualMap_Piece_Text_Fontsize" #name="ngModel">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="VisualMap_Conti" class="col-sm-12 control-label">
+                                        <p>连续型组件</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="VisualMap_Conti_Show" class="col-sm-3 control-label  ">
+                                        <p class="label_two">显示</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="VisualMap_Conti_Show" required [(ngModel)]="mapchartset.VisualMap_Conti_Show" name="VisualMap_Conti_Show">
+                                            <option *ngFor="let VisualMap_Conti_Show of VisualMap_Conti_Shows" [value]="VisualMap_Conti_Show.value">{{VisualMap_Conti_Show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="VisualMap_Conti_Min" class="col-sm-3 control-label">
+                                        <p class="label_two">最小值</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="VisualMap_Conti_Min" required [(ngModel)]="mapchartset.VisualMap_Conti_Min" name="VisualMap_Conti_Min"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Text_Min" class="col-sm-3 control-label">
+                                        <p class="label_two">文本</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Text_Min" required [(ngModel)]="mapchartset.VisualMap_Conti_Text[1]" name="Text_Min"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="VisualMap_Conti_Max" class="col-sm-3 control-label">
+                                        <p class="label_two">最大值</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="VisualMap_Conti_Max" required [(ngModel)]="mapchartset.VisualMap_Conti_Max" name="VisualMap_Conti_Max"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Text_Max" class="col-sm-3 control-label">
+                                        <p class="label_two">文本</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Text_Max" required [(ngModel)]="mapchartset.VisualMap_Conti_Text[0]" name="Text_Max"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Conti" class="col-sm-3 control-label ">
+                                        <p class="label_two">分段</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="Conti" required [(ngModel)]="Conti" name="Conti" #name="ngModel">
+                                            <span class="input-group-addon">段</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="conti_section" class="col-sm-3 control-label ">
+                                        <p class="label_two">段</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">第</span>
+                                            <input type="text" class="form-control" id="conti_section" required [(ngModel)]="conti_section" name="conti_section" (blur)="Conti_Index_Set(conti_section)"
+                                                #name="ngModel">
+                                            <span class="input-group-addon">段</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Conti_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.VisualMap_Conti_InRange[conti_index]"
+                                            class="form-control" id="Conti_Color" required [(ngModel)]="mapchartset.VisualMap_Conti_InRange[conti_index]"
+                                            name="Conti_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="VisualMap_Conti_Text_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">字色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.VisualMap_Conti_Text_Color"
+                                            class="form-control" required [(ngModel)]="mapchartset.VisualMap_Conti_Text_Color"
+                                            name="VisualMap_Conti_Text_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="VisualMap_Conti_Text_Fontsize" class="col-sm-3 control-label">
+                                        <p class="label_two">字体</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="VisualMap_Conti_Text_Fontsize" required [(ngModel)]="mapchartset.VisualMap_Conti_Text_Fontsize"
+                                            name="VisualMap_Conti_Text_Fontsize" #name="ngModel">
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label for="Tooltip" class="col-sm-3 control-label">
+                                        <p>提示框</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Tooltip_Trigger" class="col-sm-3 control-label  ">
+                                        <p class="label_two">触发</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Tooltip_Trigger" required [(ngModel)]="mapchartset.Tooltip_Trigger" name="Tooltip_Trigger">
+                                            <option *ngFor="let Tooltip_Trigger of Tooltip_Triggers" [value]="Tooltip_Trigger.value">{{Tooltip_Trigger.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Backgroudcolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">背景</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.Tooltip_Backgroudcolor"
+                                            class="form-control" id="Tooltip_Backgroudcolor" required [(ngModel)]="mapchartset.Tooltip_Backgroudcolor"
+                                            name="Tooltip_Backgroudcolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">字色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="mapchartset.Tooltip_Color"
+                                            class="form-control" id="Tooltip_Color" required [(ngModel)]="mapchartset.Tooltip_Color"
+                                            name="Tooltip_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Tool_Formatter" class="col-sm-3 control-label">
+                                        <p class="label_two">单位</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Tool_Formatter" required [(ngModel)]="mapchartset.Tool_Formatter" name="Tool_Formatter"
+                                            #name="ngModel">
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="btn_box">
+
+            <button class="col-sm-12 btn btn-primary"  nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="Save()">保存</button>
+
+
+            <button class="col-sm-12 btn btn-warning"  nz-button [nzType]="'default'" [nzSize]="'large'" [routerLink]="['/center/chartlist']">返回</button>
+
+        </div>
+    </div>
+</div>

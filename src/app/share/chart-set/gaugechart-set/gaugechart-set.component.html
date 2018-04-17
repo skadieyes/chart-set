@@ -1,0 +1,497 @@
+<div class="panel panel-box" id="chartset_panel">
+    <div class="chartbox">
+        <cst-gaugechart [gaugechart]="gaugechartset">
+        </cst-gaugechart>
+    </div>
+
+
+    <div class="chartsetbox">
+        <div class="gaugechart-set overflow">
+            <div class="panel-group" id="accordion">
+                <div class="panel ">
+                    <div class="panel-heading coll-panel-one">
+                        <p class="panel-title">
+                            <a class="coll-href" >
+					数据设置
+				</a>
+                        </p>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+
+                            <div class="form-group">
+
+                                <label for="Data_source" class="col-sm-3 control-label  "><p >数据源</p></label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_source" required [ngModel]="gaugechartset.Data_source" (ngModelChange)="gaugechartset.Data_source=$event;select_data()" name="Data_source">
+    <option *ngFor="let Data_source of Data_sources" [value]="Data_source.value" >{{Data_source.name}}</option>
+  </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="Data_valuename" class="col-sm-3 control-label  "><p class="label_two">数值</p></label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_valuename" required [ngModel]="gaugechartset.Data_valuename" (ngModelChange)="gaugechartset.Data_valuename=$event;select_data_valuename(gaugechartset.Data_valuename)" name="Data_valuename">
+    <option *ngFor="let Data_valuename of Data_valuenames" [value]="Data_valuename">{{Data_valuename}}</option>
+  </select>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel ">
+                    <div class="panel-heading panel-cst coll-panel-two">
+                        <h4 class="panel-title">
+                            <a >
+					配置项
+				</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            <form>
+
+
+                                <div class="form-group">
+                                    <label for="Chart_BackgroundColor" class="col-sm-3 control-label "><p >背景</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="gaugechartset.Chart_BackgroundColor" class="form-control" id="Chart_BackgroundColor" required [(ngModel)]="gaugechartset.Chart_BackgroundColor"
+                                            name="Chart_BackgroundColor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Text" class="col-sm-3 control-label">标题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Title_Text" required [(ngModel)]="gaugechartset.Title_Text" name="name" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Position" class="col-sm-3 control-label  "><p class="label_two">位置</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Position" required [(ngModel)]="gaugechartset.Title_Position" name="title_position">
+    <option *ngFor="let position of title_positions" [value]="position.value">{{position.name}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Fontfamily" class="col-sm-3 control-label  "><p class="label_two">字体</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Fontfamily" required [(ngModel)]="gaugechartset.Title_Fontfamily" name="fontfamily">
+    <option *ngFor="let fontfamily of fontfamilys" [value]="fontfamily">{{fontfamily}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Color" class="col-sm-3 control-label "><p class="label_two">颜色</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="gaugechartset.Title_Color" class="form-control" id="Title_Color" required [(ngModel)]="gaugechartset.Title_Color" name="color"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Fontweight" class="col-sm-3 control-label  "><p class="label_two">粗细</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Fontweight" required [(ngModel)]="gaugechartset.Title_Fontweight" name="fontweight">
+    <option *ngFor="let fontweight of Title_Fontweights" [value]="fontweight">{{fontweight}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label for="Legend_Show" class="col-sm-3 control-label"><p >图形</p></label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Name" class="col-sm-3 control-label"><p class="label_two" >名字</p></label>
+                                    <div class="col-sm-8">
+
+                                        <input type="text" class="form-control" id="Series_Name" required [(ngModel)]="gaugechartset.Series_Name" name="Series_Name" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Radius" class="col-sm-3 control-label"><p class="label_two" >半径</p></label>
+                                    <div class="col-sm-8">
+
+                                        <input type="text" class="form-control" id="Series_Radius" required [(ngModel)]="gaugechartset.Series_Radius" name="Series_Radius" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_StartAngle" class="col-sm-3 control-label"><p class="label_two" >起始</p></label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="Series_StartAngle" required [(ngModel)]="gaugechartset.Series_StartAngle" name="Series_StartAngle" #name="ngModel">
+                                            <span class="input-group-addon">角度</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_EndAngle" class="col-sm-3 control-label"><p class="label_two" >结束</p></label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="Series_EndAngle" required [(ngModel)]="gaugechartset.Series_EndAngle" name="Series_EndAngle" #name="ngModel">
+                                            <span class="input-group-addon">角度</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Min" class="col-sm-3 control-label"><p class="label_two">最小值</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Min" required [(ngModel)]="gaugechartset.Series_Min" name="Series_Min" #name="ngModel" (blur)="Label_Count(gaugechartset.Series_Min, gaugechartset.Series_Max)">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Max" class="col-sm-3 control-label"><p class="label_two">最大值</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Max" required [(ngModel)]="gaugechartset.Series_Max" name="Series_Max" #name="ngModel" (blur)="Label_Count(gaugechartset.Series_Min, gaugechartset.Series_Max)">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Series_Line_Show" class="col-sm-3 control-label">轴线</label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Series_SplitNumber" class="col-sm-3 control-label  "><p class="label_two">显示</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_SplitNumber" required [(ngModel)]="gaugechartset.Series_SplitNumber" name="Series_SplitNumber">
+    <option *ngFor="let Series_SplitNumber of Series_SplitNumbers" [value]="Series_SplitNumber.value">{{Series_SplitNumber.name}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Line_Width" class="col-sm-3 control-label"><p class="label_two">宽度</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Line_Width" required [(ngModel)]="gaugechartset.Series_Line_Width" name="Series_Line_Width" #name="ngModel">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Series_Line_Color" class="col-sm-3 control-label">颜色区块</label>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Division" class="col-sm-3 control-label "><p class="label_two">划分</p></label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control" id="Division" required [(ngModel)]="Division" (blur)="DoDivision(Division)" name="Division" #name="ngModel">
+                                            <span class="input-group-addon">段</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Color_Index" class="col-sm-3 control-label "><p class="label_two">区块</p></label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">第</span>
+                                            <input type="text" class="form-control" id="section" required [(ngModel)]="section" name="section" #name="ngModel" (blur)="Threshold_Set(section)">
+                                            <span class="input-group-addon">段</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Threshold" class="col-sm-3 control-label"><p class="label_two" >阈值</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Threshold" required [(ngModel)]="Threshold" name="Threshold" #name="ngModel" (blur)="Count_threshold(Threshold,color_index)">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Line_Color" class="col-sm-3 control-label "><p class="label_two">颜色</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="gaugechartset.Series_Line_Color[color_index][1]" class="form-control" id="Series_Line_Color" required [(ngModel)]="gaugechartset.Series_Line_Color[color_index][1]"
+                                            name="Series_Line_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Line_Show" class="col-sm-3 control-label">刻度标签</label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Series_Label_Show" class="col-sm-3 control-label  "><p class="label_two">显示</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Label_Show" required [(ngModel)]="gaugechartset.Series_Label_Show" name="Series_Label_Show">
+    <option *ngFor="let Series_Label_Show of Series_Label_Shows" [value]="Series_Label_Show.value">{{Series_Label_Show.name}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Label_Distance" class="col-sm-3 control-label"><p class="label_two" >距离</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Label_Distance" required [(ngModel)]="gaugechartset.Series_Label_Distance" name="Series_Label_Distance" #name="ngModel">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Series_Label_Fontsize" class="col-sm-3 control-label"><p class="label_two">字号</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Label_Fontsize" required [(ngModel)]="gaugechartset.Series_Label_Fontsize" name="Series_Label_Fontsize" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Label" class="col-sm-3 control-label">标签内容</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Label_Index" class="col-sm-3 control-label "><p class="label_two">段</p></label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">第</span>
+                                            <input type="text" class="form-control" id="Label_Index" required [(ngModel)]="label_section" name="Label_section" (blur)="Label_Index_Set(label_section)" #name="ngModel">
+                                            <span class="input-group-addon">段</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="params" class="col-sm-3 control-label"><p class="label_two">内容</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="params" required [(ngModel)]="gaugechartset.params[label_index]" name="params" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Tick " class="col-sm-3 control-label">刻度</label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Series_Tick_Show" class="col-sm-3 control-label  "><p class="label_two">显示</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Tick_Show" required [(ngModel)]="gaugechartset.Series_Tick_Show" name="Series_Tick_Show">
+    <option *ngFor="let Series_Tick_Show of Series_Tick_Shows" [value]="Series_Tick_Show.value">{{Series_Tick_Show.name}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Tick_SplitNumber" class="col-sm-3 control-label"><p class="label_two">分割段</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Tick_SplitNumber" required [(ngModel)]="gaugechartset.Series_Tick_SplitNumber" name="Series_Tick_SplitNumber" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Tick_Length" class="col-sm-3 control-label"><p class="label_two">长度</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Tick_Length" required [(ngModel)]="gaugechartset.Series_Tick_Length" name="Series_Tick_Length" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Tick_Width" class="col-sm-3 control-label"><p class="label_two">宽度</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Tick_Width" required [(ngModel)]="gaugechartset.Series_Tick_Width" name="Series_Tick_Width" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Tick_Color" class="col-sm-3 control-label "><p class="label_two">颜色</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="gaugechartset.Series_Tick_Color" class="form-control" id="Series_Tick_Color" required [(ngModel)]="gaugechartset.Series_Tick_Color"
+                                            name="Series_Tick_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="Series_Spl " class="col-sm-3 control-label">分割线</label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Series_Spl_Show" class="col-sm-3 control-label  "><p class="label_two">显示</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Spl_Show" required [(ngModel)]="gaugechartset.Series_Spl_Show" name="Series_Spl_Show">
+    <option *ngFor="let Series_Spl_Show of Series_Spl_Shows" [value]="Series_Spl_Show.value">{{Series_Spl_Show.name}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Spl_Length" class="col-sm-3 control-label"><p class="label_two">长度</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Spl_Length" required [(ngModel)]="gaugechartset.Series_Spl_Length" name="Series_Spl_Length" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Spl_Width" class="col-sm-3 control-label"><p class="label_two">宽度</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Spl_Width" required [(ngModel)]="gaugechartset.Series_Spl_Width" name="Series_Spl_Width" #name="ngModel">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="Series_Spl_Color" class="col-sm-3 control-label "><p class="label_two">颜色</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="gaugechartset.Series_Spl_Color" class="form-control" id="Series_Spl_Color" required [(ngModel)]="gaugechartset.Series_Spl_Color"
+                                            name="Series_Spl_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Point" class="col-sm-3 control-label">指针</label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Series_Point_Show" class="col-sm-3 control-label  "><p class="label_two">显示</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Point_Show" required [(ngModel)]="gaugechartset.Series_Point_Show" name="Series_Point_Show">
+    <option *ngFor="let Series_Point_Show of Series_Point_Shows" [value]="Series_Point_Show.value">{{Series_Point_Show.name}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Point_Length" class="col-sm-3 control-label"><p class="label_two">长度</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Point_Length" required [(ngModel)]="gaugechartset.Series_Point_Length" name="Series_Point_Length" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Point_Width" class="col-sm-3 control-label"><p class="label_two">宽度</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Point_Width" required [(ngModel)]="gaugechartset.Series_Point_Width" name="Series_Point_Width" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Series_Detail" class="col-sm-3 control-label  "><p class="label_two">详情</p></label>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Series_Detail_Show" class="col-sm-3 control-label  "><p class="label_two">显示</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Detail_Show" required [(ngModel)]="gaugechartset.Series_Detail_Show" name="Series_Detail_Show">
+    <option *ngFor="let Series_Detail_Show of Series_Detail_Shows" [value]="Series_Detail_Show.value">{{Series_Detail_Show.name}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Detail_offsetCenter_left" class="col-sm-3 control-label"><p class="label_two">左偏移</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Detail_offsetCenter_left" required [(ngModel)]="gaugechartset.Series_Detail_offsetCenter[0]" name="Series_Detail_offsetCenter_left" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Detail_offsetCenter_top" class="col-sm-3 control-label"><p class="label_two">上偏移</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Detail_offsetCenter_top" required [(ngModel)]="gaugechartset.Series_Detail_offsetCenter[1]" name="Series_Detail_offsetCenter_top" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Detail_fontsize" class="col-sm-3 control-label"><p class="label_two">字号</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Series_Detail_fontsize" required [(ngModel)]="gaugechartset.Series_Detail_fontsize" name="Series_Detail_fontsize" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Tooltip" class="col-sm-3 control-label"><p >提示框</p></label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Tooltip_Trigger" class="col-sm-3 control-label  "><p class="label_two">触发</p></label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Tooltip_Trigger" required [(ngModel)]="gaugechartset.Tooltip_Trigger" name="Tooltip_Trigger">
+    <option *ngFor="let Tooltip_Trigger of Tooltip_Triggers" [value]="Tooltip_Trigger.value">{{Tooltip_Trigger.name}}</option>
+  </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Backgroudcolor" class="col-sm-3 control-label "><p class="label_two">背景</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="gaugechartset.Tooltip_Backgroudcolor" class="form-control" id="Tooltip_Backgroudcolor" required [(ngModel)]="gaugechartset.Tooltip_Backgroudcolor"
+                                            name="Tooltip_Backgroudcolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Color" class="col-sm-3 control-label "><p class="label_two">字色</p></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="gaugechartset.Tooltip_Color" class="form-control" id="Tooltip_Color" required [(ngModel)]="gaugechartset.Tooltip_Color" name="Tooltip_Color"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="btn_box">
+
+            <button class="col-sm-12 btn btn-primary" nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="Save()">保存</button>
+
+
+            <button class="col-sm-12 btn btn-warning" nz-button [nzType]="'default'" [nzSize]="'large'" [routerLink]="['/center/chartlist']">返回</button>
+
+        </div>
+    </div>

@@ -1,0 +1,162 @@
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+div {
+    padding: 0;
+}
+.homeset-body{
+    height: 100%;
+}
+.panel-heading {
+    padding: 10px;
+    color: #515151;
+    border: none;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+.panel-margin {
+    padding: 20px;
+}
+
+.panel-box {
+    height: 50%;
+    border: none;
+}
+
+.panel-size {
+    height: 100%;
+}
+
+.home-body {
+    position: absolute;
+    top: 65px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.btn-position {
+    position: absolute;
+    right: 50px;
+    margin-top: -6px;
+}
+
+.modal-style {
+    width: 1200px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    margin-top: -300px;
+}
+
+.body-style {
+    height: 400px;
+}
+
+.panel-box {
+    position: relative;
+    width: 50%;
+    height: 50%;
+}
+
+.panel-box_2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.panelbody-box {
+    width: 100%;
+    height: 89%;
+    position: relative;
+}
+
+.homeset-menu {
+    margin-left: 20px;
+    margin-right: 20px;
+    position: absolute;
+    right: 0px;
+    width: 380px;
+    height: 92%;
+}
+
+.template-box {
+    position: absolute;
+    right: 400px;
+    height: 92%;
+    left: 0px;
+}
+
+.panel-cst {
+    background-color: #fff;
+    color: #333;
+}
+
+.homemenu-box {
+    height: 100%;
+    margin: 30px 0 0;
+}
+.panel-title{
+    font-size: 14px;
+}
+.nav li a {
+    color: #515151;
+    border-radius: 0;
+}
+
+.nav li a:hover,
+.nav li a:active {
+    background: #f3fce8;
+}
+
+.nav li a:focus {
+    background: #f3fce8;
+}
+
+.li_active {
+    background: #f3fce8;
+    border-right: 3px solid #85bb44;
+}
+
+.img_position {
+    margin-right: 20px;
+}
+
+.a_position {
+    padding-left: 30px;
+}
+
+.btn_box {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    width: 380px;
+    right: 0;
+}
+
+.control-label {
+    font-weight: normal;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+    border-left: 5px solid #42A948;
+    /* green */
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #a94442;
+    /* red */
+}
+.panel-default{
+    border: none;
+}

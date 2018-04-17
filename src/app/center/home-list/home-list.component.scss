@@ -1,0 +1,71 @@
+#list_panel {
+    height: 94%;
+    position: relative;
+    width: 100%;
+}
+
+.operation {
+    height: 50px;
+}
+
+.button-box {
+    position: absolute;
+    left: 100px;
+}
+
+.panel-cst {
+    border: none;
+    display: flex;
+}
+
+.panel-box {
+    border: none;
+    border-radius: 8px;
+}
+
+.panel-title {
+    font-size: 15px;
+    padding-left: 15px;
+}
+
+.btn_margin {
+    margin: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #515151;
+}
+
+.btn_green {
+    border-color: #85bb44;
+}
+
+.btn_blue {
+    border-color: #398fcb;
+}
+
+.listitems_box {
+    height: 85%;
+}
+
+.overflow {
+    overflow: auto;
+}
+
+.item {
+    border-bottom: 1px dashed #bcbcbc;
+    width: 80%;
+    margin-left: 120px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+}
+
+.list_strip {
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+}
+
+.text_position {
+    line-height: 50px;
+}

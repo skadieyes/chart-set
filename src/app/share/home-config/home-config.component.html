@@ -1,0 +1,65 @@
+<div class="home-config">
+
+    <div *ngIf="menu_show" class="btn-group pull-right button_position" dropdown>
+        <button dropdownToggle type="button" class="btn btn-default dropdown-toggle">
+            <i class="fa fa-cogs fa-fw fa-lg icon-color"></i>
+
+        </button>
+        <ul *dropdownMenu class="dropdown-menu" role="menu">
+            <li role="menuitem">
+                <a class="dropdown-item" (click)="showModal()">
+                    <i class="fa fa-bar-chart fa-fw"></i>选择图表</a>
+            </li>
+            <li role="menuitem">
+                <a class="dropdown-item" (click)="delete_chart()">
+                    <i class="fa fa-trash-o fa-fw"></i>删除图表</a>
+            </li>
+        </ul>
+    </div>
+
+    <div [ngSwitch]="chart_name" class="chart-box" *ngIf="chart_show">
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw loadding-icon" *ngIf="loading"></i>
+        <cst-linechart *ngSwitchCase="'line'" [linechart]="chart"></cst-linechart>
+        <cst-gaugechart *ngSwitchCase="'gauge'" [gaugechart]="chart">仪表图配置组件</cst-gaugechart>
+        <cst-piechart *ngSwitchCase="'pie'" [piechart]="chart">饼图配置组件</cst-piechart>
+        <cst-barchart *ngSwitchCase="'bar'" [barchart]="chart">柱状图图配置组件</cst-barchart>
+        <cst-stripchart *ngSwitchCase="'strip'" [stripchart]="chart"> 条形图配置组件</cst-stripchart>
+        <cst-mapchart *ngSwitchCase="'map'" [mapchart]="chart">地图配置组件</cst-mapchart>
+    </div>
+</div>
+
+<!-- <div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal" class="modal fade ng_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header cst-modal">
+                <div class="modal-title pull-left">选择图表</div>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body body-style">
+                <div class="form-group">
+                    <label for="chart_list" class="col-sm-3 control-label  ">选择一个图表</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="chart_list" required name="chart_id" [ngModel]="chart_id" (ngModelChange)="chart_id=$event">
+    <option *ngFor="let chart_list of chart_lists" [value]="chart_list.id">{{chart_list.Title_Text}}</option>
+  </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="button-box">
+                    <button type="button" class="btn btn-primary btn-sm" (click)="save(chart_id)" aria-label="Close" (click)="hideModal()">确定</button>
+                    <button type="button" class="btn btn-default btn-sm" aria-label="Close" (click)="hideModal()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<nz-modal [nzVisible]="isModalShown" [nzTitle]="'第一个 Modal'" [nzContent]="modalContent" (nzOnCancel)="onHidden()" (nzOnOk)="save(chart_id);onHidden()">
+    <ng-template #modalContent>
+            <select class="form-control" id="chart_list" required name="chart_id" [ngModel]="chart_id" (ngModelChange)="chart_id=$event">
+                <option *ngFor="let chart_list of chart_lists" [value]="chart_list.id">{{chart_list.Title_Text}}</option>
+            </select>
+    </ng-template>
+</nz-modal>

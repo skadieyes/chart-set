@@ -1,0 +1,38 @@
+
+<div class="list_body col-xs-12">
+    <div class="panel panel-default panel-box" id="list_panel">
+        <div class="panel-heading panel-cst">
+            <p class="panel-title">
+
+                <i class="fa fa-paste"></i >  页面列表
+
+                </p>
+        </div>
+        <div class="operation">
+            <div class="button-box">
+                <button type="button" class="btn btn-default btn_margin btn_blue" (click)="add()">新增</button>
+
+
+            </div>
+
+
+        </div>
+
+        <div class="listitems_box overflow">
+            <div class="col-xs-12 list_strip">
+                <div class="col-xs-12 item">
+                    <div class="text_position">
+
+                        <div class="col-xs-2">
+                            页面标题
+                        </div>
+
+                    </div>
+
+                </div>
+                <cst-home-listitem *ngFor="let homelistitem of homelistitems" [homelistitem]="homelistitem" (deleteitemEvent)="Deleteitem_ChildEvent($event)" (deleteidEvent)="Deleteid_ChildEvent($event)">
+                </cst-home-listitem>
+            </div>
+        </div>
+
+    </div>

@@ -1,0 +1,35 @@
+<nz-layout class="layout">
+    <nz-header>
+        <a class="logo" [routerLink]="['/center']">
+            <i class="fa fa-area-chart logo-icon"></i>ChartSet
+        </a>
+        <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+            <li class="nav-child" nz-menu-item [routerLink]="['/center/homelist']" [routerLinkActive]="'ant-menu-item-selected'">
+                <i class="fa fa-paste"></i> 页面配置</li>
+            <li class="nav-child" nz-menu-item [routerLink]="['/center/chartlist']" [routerLinkActive]="'ant-menu-item-selected'">
+                <i class="fa fa-line-chart"></i> 图表配置</li>
+            <li class="nav-child" nz-menu-item [routerLink]="['/center/sourcelist']" [routerLinkActive]="'ant-menu-item-selected'">
+                <i class="fa fa-cubes"></i> 数据源配置</li>
+        </ul>
+    </nz-header>
+    <nz-content class="center-content">
+        <div *ngIf="_router.routerState.snapshot.url == '/center'" class="center-body">
+            <div class="center-slogan">
+                <div class="slogan-step">
+                    <div class="step-item">
+                        <a class="anticon step-icon anticon-file-text data-icon" [routerLink]="['/center/sourcelist']"></a><i class="anticon step-icon-arrow anticon-arrow-right"></i></div>
+                    <div class="step-item">
+                        <a class="anticon step-icon anticon-line-chart chart-icon" [routerLink]="['/center/chartlist']"></a><i class="anticon step-icon-arrow anticon-arrow-right"></i></div>
+                    <div class="step-item">
+                        <a class="anticon step-icon anticon-laptop page-icon" [routerLink]="['/center/sourcelist']"></a>
+                    </div>
+                </div>
+                <div class="slogan-label">
+                    三步操作来定制你的数据可视化应用
+                </div>
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer style="text-align: center;">ChartSet ©2018 Implement By Angular</nz-footer>
+</nz-layout>

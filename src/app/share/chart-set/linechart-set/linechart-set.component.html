@@ -1,0 +1,562 @@
+<div class="panel-box" id="chartset_panel">
+    <div class="chartbox">
+        <cst-linechart [linechart]="linechartset" ></cst-linechart>
+    </div>
+
+
+    <div class="chartsetbox">
+        <div class="linechart-set">
+            <div class="panel-group" id="accordion">
+                <div class="panel">
+                    <div class="panel-heading coll-panel-one panel-cst">
+                        <p class="panel-title">
+                                数据设置
+                        </p>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+
+                            <div class="form-group">
+
+                                <label for="Data_source" class="col-sm-3 control-label  ">
+                                    <p>数据源</p>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_source" required [ngModel]="linechartset.Data_source" (ngModelChange)="linechartset.Data_source=$event;select_data()"
+                                        name="Data_source">
+                                        <option *ngFor="let Data_source of Data_sources" [value]="Data_source.id">{{Data_source.SOURCE_NAME}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="Data_name" class="col-sm-3 control-label  ">
+                                    <p class="label_two">维度</p>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_name" required [ngModel]="linechartset.Data_name" (ngModelChange)="linechartset.Data_name=$event;select_data_name(linechartset.Data_name)"
+                                        name="Data_name">
+                                        <option *ngFor="let Data_name of Data_names" [value]="Data_name">{{Data_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="Data_valuename" class="col-sm-3 control-label  ">
+                                    <p class="label_two">数值</p>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_valuename" required [ngModel]="linechartset.Data_valuename" (ngModelChange)="linechartset.Data_valuename=$event;select_data_valuename(linechartset.Data_valuename)"
+                                        name="Data_valuename">
+                                        <option *ngFor="let Data_valuename of Data_valuenames" [value]="Data_valuename">{{Data_valuename}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading panel-cst coll-panel-two">
+                        <p class="panel-title">
+                                配置项
+                        </p>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            <form>
+
+
+                                <div class="form-group">
+                                    <label for="Chart_BackgroundColor" class="col-sm-3 control-label ">
+                                        <p>背景</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Chart_BackgroundColor"
+                                            class="form-control" id="Chart_BackgroundColor" required [(ngModel)]="linechartset.Chart_BackgroundColor"
+                                            name="Chart_BackgroundColor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Text" class="col-sm-3 control-label">标题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Title_Text" required [(ngModel)]="linechartset.Title_Text" name="name" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Position" class="col-sm-3 control-label  ">
+                                        <p class="label_two">位置</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Position" required [(ngModel)]="linechartset.Title_Position" name="title_position">
+                                            <option *ngFor="let position of title_positions" [value]="position.value">{{position.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Fontfamily" class="col-sm-3 control-label  ">
+                                        <p class="label_two">字体</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Fontfamily" required [(ngModel)]="linechartset.Title_Fontfamily" name="fontfamily">
+                                            <option *ngFor="let fontfamily of fontfamilys" [value]="fontfamily">{{fontfamily}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Title_Color"
+                                            class="form-control" id="Title_Color" required [(ngModel)]="linechartset.Title_Color"
+                                            name="color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Fontweight" class="col-sm-3 control-label  ">
+                                        <p class="label_two">粗细</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Fontweight" required [(ngModel)]="linechartset.Title_Fontweight" name="fontweight">
+                                            <option *ngFor="let fontweight of Title_Fontweights" [value]="fontweight">{{fontweight}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Legend_Show" class="col-sm-3 control-label">
+                                        <p>图例</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Legend_Show" required [(ngModel)]=linechartset.Legend_Show name="legend_show">
+                                            <option *ngFor="let show of Legend_Shows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Legend_textcolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">字色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Legend_textcolor"
+                                            class="form-control" id="Legend_textcolor" required [(ngModel)]="linechartset.Legend_textcolor"
+                                            name="Legend_textcolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Legend_Left" class="col-sm-3 control-label">
+                                        <p class="label_two">左边距</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Legend_Left" required [(ngModel)]="linechartset.Legend_Left" name="Legend_Left"
+                                            #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Legend_Top" class="col-sm-3 control-label">
+                                        <p class="label_two">上边距</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Legend_Top" required [(ngModel)]="linechartset.Legend_Top" name="Legend_Top"
+                                            #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Legend_Show" class="col-sm-3 control-label">
+                                        <p>图形</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Name" class="col-sm-3 control-label">
+                                        <p class="label_two">名字</p>
+                                    </label>
+                                    <div class="col-sm-8">
+
+                                        <input type="text" class="form-control" id="Series_Name" required [(ngModel)]="linechartset.Series_Name" name="Series_Name"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Item_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Series_Item_Color"
+                                            class="form-control" id="Series_Item_Color" required [(ngModel)]="linechartset.Series_Item_Color"
+                                            name="Series_Item_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Line_Width" class="col-sm-3 control-label">
+                                        <p class="label_two">线宽</p>
+                                    </label>
+                                    <div class="col-sm-8">
+
+                                        <input type="text" class="form-control" id="Series_Line_Width" required [(ngModel)]="linechartset.Series_Line_Width" name="Series_Line_Width"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Series_Smooth" class="col-sm-3 control-label">
+                                        <p class="label_two">平滑</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Smooth" required [(ngModel)]=linechartset.Series_Smooth name="Series_Smooth">
+                                            <option *ngFor="let show of Series_Smooths" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group ">
+                                    <label for="Series_SymbolSize" class="col-sm-3 control-label ">
+                                        <p class="label_two">最值</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="Series_SymbolSize" required [(ngModel)]="linechartset.Series_SymbolSize" name="Series_SymbolSize"
+                                                #name="ngModel">
+                                            <span class="input-group-addon">尺寸</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group ">
+                                    <label for="Series_SymbolSize2" class="col-sm-3 control-label ">
+                                        <p class="label_two">平均值</p>
+                                    </label>
+                                    <div class="col-sm-8 ">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="Series_SymbolSize2" required [(ngModel)]="linechartset.Series_SymbolSize2" name="Series_SymbolSize2"
+                                                #name="ngModel">
+                                            <span class="input-group-addon">尺寸</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Series_Showsymbol" class="col-sm-3 control-label">标记</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Showsymbol" required [(ngModel)]=linechartset.Series_Showsymbol name="Series_Showsymbol">
+                                            <option *ngFor="let show of Series_Showsymbols" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Symbol" class="col-sm-3 control-label">
+                                        <p class="label_two">图形</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_Symbol" required [(ngModel)]=linechartset.Series_Symbol name="Series_Symbol">
+                                            <option *ngFor="let symbol of Series_Symbols" [value]=symbol.value>{{symbol.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Symbolsize" class="col-sm-3 control-label">
+                                        <p class="label_two">大小</p>
+                                    </label>
+                                    <div class="col-sm-8">
+
+                                        <input type="text" class="form-control" id="Series_Symbolsize" required [(ngModel)]="linechartset.Series_Symbolsize" name="Series_Symbolsize"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Tooltip" class="col-sm-3 control-label">
+                                        <p>提示框</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Tooltip_Trigger" class="col-sm-3 control-label  ">
+                                        <p class="label_two">触发</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Tooltip_Trigger" required [(ngModel)]="linechartset.Tooltip_Trigger" name="Tooltip_Trigger">
+                                            <option *ngFor="let Tooltip_Trigger of Tooltip_Triggers" [value]="Tooltip_Trigger.value">{{Tooltip_Trigger.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Point_Type" class="col-sm-3 control-label  ">
+                                        <p class="label_two">指示器</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Tooltip_Point_Type" required [(ngModel)]="linechartset.Tooltip_Point_Type" name="Tooltip_Point_Type">
+                                            <option *ngFor="let Tooltip_Point_Type of Tooltip_Point_Types" [value]="Tooltip_Point_Type.value">{{Tooltip_Point_Type.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Backgroudcolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">背景</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Tooltip_Backgroudcolor"
+                                            class="form-control" id="Tooltip_Backgroudcolor" required [(ngModel)]="linechartset.Tooltip_Backgroudcolor"
+                                            name="Tooltip_Backgroudcolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">字色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Tooltip_Color"
+                                            class="form-control" id="Tooltip_Color" required [(ngModel)]="linechartset.Tooltip_Color"
+                                            name="Tooltip_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Line_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">线色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Tooltip_Line_Color"
+                                            class="form-control" id="Tooltip_Line_Color" required [(ngModel)]="linechartset.Tooltip_Line_Color"
+                                            name="Tooltip_Line_Color" #name="ngModel">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Xais" class="col-sm-3 control-label">
+                                        <p>X轴</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Name" class="col-sm-3 control-label">
+                                        <p class="label_two">名字</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Xaxis_Name" required [(ngModel)]="linechartset.Xaxis_Name" name="Xaxis_Name"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Linecolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Xaxis_Linecolor"
+                                            class="form-control" id="Xaxis_Linecolor" required [(ngModel)]="linechartset.Xaxis_Linecolor"
+                                            name="Xaxis_Linecolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="XAxis_Fontsize" class="col-sm-3 control-label">
+                                        <p class="label_two">字号</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="XAxis_Fontsize" required [(ngModel)]="linechartset.XAxis_Fontsize" name="XAxis_Fontsize"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="XAxis_Margin" class="col-sm-3 control-label">
+                                        <p class="label_two">间距</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="XAxis_Margin" required [(ngModel)]="linechartset.XAxis_Margin" name="XAxis_Margin"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Spl_Show" class="col-sm-3 control-label">
+                                        <p class="label_two">分割线</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Xaxis_Spl_Show" required [(ngModel)]=linechartset.Xaxis_Spl_Show name="Xaxis_Spl_Show">
+                                            <option *ngFor="let show of Xaxis_Spl_Shows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Spl_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Xaxis_Spl_Color"
+                                            class="form-control" id="Xaxis_Spl_Color" required [(ngModel)]="linechartset.Xaxis_Spl_Color"
+                                            name="Xaxis_Spl_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Tickshow" class="col-sm-3 control-label">
+                                        <p class="label_two">刻度</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Xaxis_Tickshow" required [(ngModel)]=linechartset.Xaxis_Tickshow name="Xaxis_Tickshow">
+                                            <option *ngFor="let show of Xaxis_Tickshows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label for="Xais" class="col-sm-3 control-label">
+                                        <p>Y轴</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="Yaxis_Name" class="col-sm-3 control-label ">
+                                        <p class="label_two">名字</p>
+                                    </label>
+                                    <div class="col-sm-8 ">
+
+                                        <input type="text" class="form-control" id="Yaxis_Name" required [(ngModel)]="linechartset.Yaxis_Name" name="Yaxis_Name"
+                                            #name="ngModel">
+
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Max" class="col-sm-3 control-label">
+                                        <p class="label_two">最大值</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Yaxis_Max" required [(ngModel)]="linechartset.Yaxis_Max" name="Yaxis_Max" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Min" class="col-sm-3 control-label">
+                                        <p class="label_two">最小值</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Yaxis_Min" required [(ngModel)]="linechartset.Yaxis_Min" name="Yaxis_Min" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Linecolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Yaxis_Linecolor"
+                                            class="form-control" id="Yaxis_Linecolor" required [(ngModel)]="linechartset.Yaxis_Linecolor"
+                                            name="Yaxis_Linecolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Fontsize" class="col-sm-3 control-label">
+                                        <p class="label_two">字号</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Yaxis_Fontsize" required [(ngModel)]="linechartset.Yaxis_Fontsize" name="Yaxis_Fontsize"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Margin" class="col-sm-3 control-label">
+                                        <p class="label_two">间距</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Yaxis_Margin" required [(ngModel)]="linechartset.Yaxis_Margin" name="Yaxis_Margin"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Spl_Show" class="col-sm-3 control-label">
+                                        <p class="label_two">分割线</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Yaxis_Spl_Show" required [(ngModel)]=linechartset.Yaxis_Spl_Show name="Yaxis_Spl_Show">
+                                            <option *ngFor="let show of Yaxis_Spl_Shows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Spl_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="linechartset.Yaxis_Spl_Color"
+                                            class="form-control" id="Yaxis_Spl_Color" required [(ngModel)]="linechartset.Yaxis_Spl_Color"
+                                            name="Yaxis_Spl_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Tickshow" class="col-sm-3 control-label">
+                                        <p class="label_two">刻度</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Yaxis_Tickshow" required [(ngModel)]=linechartset.Yaxis_Tickshow name="Yaxis_Tickshow">
+                                            <option *ngFor="let show of Yaxis_Tickshows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="btn_box">
+
+            <button class="col-sm-12 btn btn-primary"  nz-button [nzType]="'primary'" [nzSize]="'large'" (click)='Save()'>保存</button>
+
+
+            <button class="col-sm-12 btn btn-warning"  nz-button [nzType]="'default'" [nzSize]="'large'" [routerLink]="['/center/chartlist']">返回</button>
+
+        </div>
+    </div>

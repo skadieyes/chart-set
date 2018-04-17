@@ -1,0 +1,536 @@
+<div class="panel  panel-box" id="chartset_panel">
+    <div class="chartbox">
+        <cst-barchart [barchart]="barchartset"></cst-barchart>
+    </div>
+
+
+    <div class="chartsetbox">
+        <div class="barchart-set overflow">
+            <div class="panel-group" id="accordion">
+                <div class="panel ">
+                    <div class="panel-heading coll-panel-one panel-cst">
+                        <p class="panel-title">
+                            <a >
+                                数据设置
+                            </a>
+                        </p>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+
+                            <div class="form-group">
+
+                                <label for="Data_source" class="col-sm-3 control-label  ">
+                                    <p>数据源</p>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_source" required [ngModel]="barchartset.Data_source" (ngModelChange)="barchartset.Data_source=$event;select_data()"
+                                        name="Data_source">
+                                        <option *ngFor="let Data_source of Data_sources" [value]="Data_source.value">{{Data_source.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="Data_name" class="col-sm-3 control-label  ">
+                                    <p class="label_two">维度</p>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_name" required [ngModel]="barchartset.Data_name" (ngModelChange)="barchartset.Data_name=$event;select_data_name(barchartset.Data_name)"
+                                        name="Data_name">
+                                        <option *ngFor="let Data_name of Data_names" [value]="Data_name">{{Data_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="Data_valuename" class="col-sm-3 control-label  ">
+                                    <p class="label_two">数值</p>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Data_valuename" required [ngModel]="barchartset.Data_valuename" (ngModelChange)="barchartset.Data_valuename=$event;select_data_valuename(barchartset.Data_valuename)"
+                                        name="Data_valuename">
+                                        <option *ngFor="let Data_valuename of Data_valuenames" [value]="Data_valuename">{{Data_valuename}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel ">
+                    <div class="panel-heading panel-cst coll-panel-two">
+                        <p class="panel-title">
+                            <a >
+                                配置项
+                            </a>
+                        </p>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            <form>
+
+
+                                <div class="form-group">
+                                    <label for="Chart_BackgroundColor" class="col-sm-3 control-label ">
+                                        <p>背景</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Chart_BackgroundColor"
+                                            class="form-control" id="Chart_BackgroundColor" required [(ngModel)]="barchartset.Chart_BackgroundColor"
+                                            name="Chart_BackgroundColor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Text" class="col-sm-3 control-label">标题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Title_Text" required [(ngModel)]="barchartset.Title_Text" name="name" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Position" class="col-sm-3 control-label  ">
+                                        <p class="label_two">位置</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Position" required [(ngModel)]="barchartset.Title_Position" name="title_position">
+                                            <option *ngFor="let position of title_positions" [value]="position.value">{{position.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Fontfamily" class="col-sm-3 control-label  ">
+                                        <p class="label_two">字体</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Fontfamily" required [(ngModel)]="barchartset.Title_Fontfamily" name="fontfamily">
+                                            <option *ngFor="let fontfamily of fontfamilys" [value]="fontfamily">{{fontfamily}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Title_Color"
+                                            class="form-control" id="Title_Color" required [(ngModel)]="barchartset.Title_Color"
+                                            name="color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Title_Fontweight" class="col-sm-3 control-label  ">
+                                        <p class="label_two">粗细</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Title_Fontweight" required [(ngModel)]="barchartset.Title_Fontweight" name="fontweight">
+                                            <option *ngFor="let fontweight of Title_Fontweights" [value]="fontweight">{{fontweight}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Legend_Show" class="col-sm-3 control-label">
+                                        <p>图例</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Legend_Show" required [(ngModel)]=barchartset.Legend_Show name="legend_show">
+                                            <option *ngFor="let show of Legend_Shows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Legend_textcolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">字色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Legend_textcolor"
+                                            class="form-control" id="Legend_textcolor" required [(ngModel)]="barchartset.Legend_textcolor"
+                                            name="Legend_textcolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Legend_Left" class="col-sm-3 control-label">
+                                        <p class="label_two">左边距</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Legend_Left" required [(ngModel)]="barchartset.Legend_Left" name="Legend_Left"
+                                            #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Legend_Top" class="col-sm-3 control-label">
+                                        <p class="label_two">上边距</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Legend_Top" required [(ngModel)]="barchartset.Legend_Top" name="Legend_Top" #name="ngModel">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Legend_Show" class="col-sm-3 control-label">
+                                        <p>图形</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_Name" class="col-sm-3 control-label">
+                                        <p class="label_two">名字</p>
+                                    </label>
+                                    <div class="col-sm-8">
+
+                                        <input type="text" class="form-control" id="Series_Name" required [(ngModel)]="barchartset.Series_Name" name="Series_Name"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_BarWidth" class="col-sm-3 control-label">
+                                        <p class="label_two">宽度</p>
+                                    </label>
+                                    <div class="col-sm-8">
+
+                                        <input type="text" class="form-control" id="Series_BarWidth" required [(ngModel)]="barchartset.Series_BarWidth" name="Series_BarWidth"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_BarColor" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Series_BarColor"
+                                            class="form-control" id="Series_BarColor" required [(ngModel)]="barchartset.Series_BarColor"
+                                            name="Series_BarColor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_BarLabel_Show" class="col-sm-3 control-label">
+                                        <p class="label_two">文本</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_BarLabel_Show" required [(ngModel)]=barchartset.Series_BarLabel_Show name="Series_BarLabel_Show">
+                                            <option *ngFor="let show of Series_BarLabel_Shows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_BarLabel_Position" class="col-sm-3 control-label">
+                                        <p class="label_two">位置</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Series_BarLabel_Position" required [(ngModel)]=barchartset.Series_BarLabel_Position name="Series_BarLabel_Position">
+                                            <option *ngFor="let position of Series_BarLabel_Positions" [value]=position.value>{{position.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_BarLabel_Fontcolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">字色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Series_BarLabel_Fontcolor"
+                                            class="form-control" id="Series_BarLabel_Fontcolor" required [(ngModel)]="barchartset.Series_BarLabel_Fontcolor"
+                                            name="Series_BarLabel_Fontcolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Series_BarLabel_Fontsize" class="col-sm-3 control-label">
+                                        <p class="label_two">字号</p>
+                                    </label>
+                                    <div class="col-sm-8">
+
+                                        <input type="text" class="form-control" id="Series_BarLabel_Fontsize" required [(ngModel)]="barchartset.Series_BarLabel_Fontsize"
+                                            name="Series_BarLabel_Fontsize" #name="ngModel">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="Tooltip" class="col-sm-3 control-label">
+                                        <p>提示框</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="Tooltip_Trigger" class="col-sm-3 control-label  ">
+                                        <p class="label_two">触发</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Tooltip_Trigger" required [(ngModel)]="barchartset.Tooltip_Trigger" name="Tooltip_Trigger">
+                                            <option *ngFor="let Tooltip_Trigger of Tooltip_Triggers" [value]="Tooltip_Trigger.value">{{Tooltip_Trigger.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Point_Type" class="col-sm-3 control-label  ">
+                                        <p class="label_two">指示器</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Tooltip_Point_Type" required [(ngModel)]="barchartset.Tooltip_Point_Type" name="Tooltip_Point_Type">
+                                            <option *ngFor="let Tooltip_Point_Type of Tooltip_Point_Types" [value]="Tooltip_Point_Type.value">{{Tooltip_Point_Type.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Backgroudcolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">背景</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Tooltip_Backgroudcolor"
+                                            class="form-control" id="Tooltip_Backgroudcolor" required [(ngModel)]="barchartset.Tooltip_Backgroudcolor"
+                                            name="Tooltip_Backgroudcolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">字色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Tooltip_Color"
+                                            class="form-control" id="Tooltip_Color" required [(ngModel)]="barchartset.Tooltip_Color"
+                                            name="Tooltip_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Tooltip_Line_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">线色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Tooltip_Line_Color"
+                                            class="form-control" id="Tooltip_Line_Color" required [(ngModel)]="barchartset.Tooltip_Line_Color"
+                                            name="Tooltip_Line_Color" #name="ngModel">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Xais" class="col-sm-3 control-label">
+                                        <p>X轴</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Name" class="col-sm-3 control-label">
+                                        <p class="label_two">名字</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Xaxis_Name" required [(ngModel)]="barchartset.Xaxis_Name" name="Xaxis_Name" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Linecolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Xaxis_Linecolor"
+                                            class="form-control" id="Xaxis_Linecolor" required [(ngModel)]="barchartset.Xaxis_Linecolor"
+                                            name="Xaxis_Linecolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="XAxis_Fontsize" class="col-sm-3 control-label">
+                                        <p class="label_two">字号</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="XAxis_Fontsize" required [(ngModel)]="barchartset.XAxis_Fontsize" name="XAxis_Fontsize"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="XAxis_Margin" class="col-sm-3 control-label">
+                                        <p class="label_two">间距</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="XAxis_Margin" required [(ngModel)]="barchartset.XAxis_Margin" name="XAxis_Margin"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Spl_Show" class="col-sm-3 control-label">
+                                        <p class="label_two">分割线</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Xaxis_Spl_Show" required [(ngModel)]=barchartset.Xaxis_Spl_Show name="Xaxis_Spl_Show">
+                                            <option *ngFor="let show of Xaxis_Spl_Shows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Spl_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Xaxis_Spl_Color"
+                                            class="form-control" id="Xaxis_Spl_Color" required [(ngModel)]="barchartset.Xaxis_Spl_Color"
+                                            name="Xaxis_Spl_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Xaxis_Tickshow" class="col-sm-3 control-label">
+                                        <p class="label_two">刻度</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Xaxis_Tickshow" required [(ngModel)]=barchartset.Xaxis_Tickshow name="Xaxis_Tickshow">
+                                            <option *ngFor="let show of Xaxis_Tickshows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label for="Xais" class="col-sm-3 control-label">
+                                        <p>Y轴</p>
+                                    </label>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="Yaxis_Name" class="col-sm-3 control-label ">
+                                        <p class="label_two">名字</p>
+                                    </label>
+                                    <div class="col-sm-8 ">
+
+                                        <input type="text" class="form-control" id="Yaxis_Name" required [(ngModel)]="barchartset.Yaxis_Name" name="Yaxis_Name" #name="ngModel">
+
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Max" class="col-sm-3 control-label">
+                                        <p class="label_two">最大值</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Yaxis_Max" required [(ngModel)]="barchartset.Yaxis_Max" name="Yaxis_Max" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Min" class="col-sm-3 control-label">
+                                        <p class="label_two">最小值</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Yaxis_Min" required [(ngModel)]="barchartset.Yaxis_Min" name="Yaxis_Min" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Linecolor" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Yaxis_Linecolor"
+                                            class="form-control" id="Yaxis_Linecolor" required [(ngModel)]="barchartset.Yaxis_Linecolor"
+                                            name="Yaxis_Linecolor" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Fontsize" class="col-sm-3 control-label">
+                                        <p class="label_two">字号</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Yaxis_Fontsize" required [(ngModel)]="barchartset.Yaxis_Fontsize" name="Yaxis_Fontsize"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Margin" class="col-sm-3 control-label">
+                                        <p class="label_two">间距</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Yaxis_Margin" required [(ngModel)]="barchartset.Yaxis_Margin" name="Yaxis_Margin"
+                                            #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Spl_Show" class="col-sm-3 control-label">
+                                        <p class="label_two">分割线</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Yaxis_Spl_Show" required [(ngModel)]=barchartset.Yaxis_Spl_Show name="Yaxis_Spl_Show">
+                                            <option *ngFor="let show of Yaxis_Spl_Shows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Spl_Color" class="col-sm-3 control-label ">
+                                        <p class="label_two">颜色</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" [cpPosition]="'bottom'" (colorPickerChange)="chart_refresh()" [cpPositionOffset]="'5%'" [(colorPicker)]="barchartset.Yaxis_Spl_Color"
+                                            class="form-control" id="Yaxis_Spl_Color" required [(ngModel)]="barchartset.Yaxis_Spl_Color"
+                                            name="Yaxis_Spl_Color" #name="ngModel">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Yaxis_Tickshow" class="col-sm-3 control-label">
+                                        <p class="label_two">刻度</p>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="Yaxis_Tickshow" required [(ngModel)]=barchartset.Yaxis_Tickshow name="Yaxis_Tickshow">
+                                            <option *ngFor="let show of Yaxis_Tickshows" [value]=show.value>{{show.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="btn_box">
+
+            <button class="col-sm-12 btn btn-primary"  nz-button [nzType]="'primary'" [nzSize]="'large'"  (click)='Save()'>保存</button>
+
+
+            <button class="col-sm-12 btn btn-warning"  nz-button [nzType]="'default'" [nzSize]="'large'"  [routerLink]="['/center/chartlist']">返回</button>
+
+        </div>
+    </div>

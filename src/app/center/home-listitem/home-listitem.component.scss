@@ -1,0 +1,108 @@
+.btn_green {
+    border-color: #85bb44;
+}
+
+.btn_blue {
+    border-color: #398fcb;
+}
+
+.btn_yellow {
+    border-color: #ffc23d;
+}
+
+.item {
+    border-bottom: 1px dashed #bcbcbc;
+    width: 80%;
+    margin-left: 120px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+}
+
+.button_position {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    margin-top: -17px;
+}
+
+.text_position {
+    line-height: 50px;
+    font-size: 14px;
+}
+
+.btn_margin {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 10px;
+    color: #515151;
+}
+
+.item:hover {
+    border-bottom: 2px solid #108ee9;
+    background-color: #f7fcff;
+}
+
+.icon-linechart {
+    background-image: url('/assets/img/line_chart.png');
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.icon-barchart {
+    background-image: url('/assets/img/bar_chart.png');
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.icon-guagechart {
+    background-image: url('/assets/img/gauge.png');
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.icon-piechart {
+    background-image: url('/assets/img/pie_chart.png');
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.icon-stripchart {
+    background-image: url('/assets/img/strip_chart.png');
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.icon-mapchart {
+    background-image: url('/assets/img/map.png');
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.btn_red {
+    border-color: #f28686;
+}

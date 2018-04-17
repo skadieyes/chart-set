@@ -1,0 +1,95 @@
+:host ::ng-deep .logo {
+    width: 120px;
+    height: 31px;
+    background: #333;
+    border-radius: 6px;
+    margin: 16px 24px 16px 0;
+    float: left;
+}
+
+.content {
+    background: #fff;
+    padding: 24px;
+    min-height: 280px;
+    margin: 30px;
+    height: 100%;
+}
+
+.nav-child {
+    font-size: 14px;
+}
+
+.logo {
+    font-size: 20px;
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    .logo-icon {
+        padding-right: 10px;
+    }
+}
+
+.center-body {
+    height: calc(100% - 130px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .center-slogan {
+        position: relative;
+        padding: 15px;
+        .slogan-label {
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+        }
+        .slogan-step {
+            display: flex;
+            .data-icon {
+                color: #e89595;
+            }
+            .chart-icon {
+                color: #d2d465;
+            }
+            .page-icon {
+                color: #8dd5ec;
+            }
+            .step-item {
+                font-size: 20px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+            }
+            .step-icon {
+                padding: 5px;
+                font-size: 100px;
+                text-decoration: none;
+                opacity: 0.8;
+            }
+            .step-icon:hover {
+                padding: 5px;
+                font-size: 160px;
+                animation: icon-hover 1s;
+                text-decoration: none;
+                opacity: 1;
+            }
+            .step-icon-arrow {
+                padding: 5px;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@keyframes icon-hover {
+    0% {
+        font-size: 100px;
+        transform: rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        font-size: 160px;
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}

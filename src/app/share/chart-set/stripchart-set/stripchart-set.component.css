@@ -1,0 +1,74 @@
+.panel-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.colo_div {
+    z-index: 100000;
+    width: 200px;
+    height: 300px;
+}
+
+.btn_box {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    width: 380px;
+    right: 0;
+}
+.panel-heading {
+    padding: 10px;
+    color: #515151;
+    background-color: #fff;
+}
+.panel-body{
+    padding: 15px 0;
+}
+.panel-title{
+    font-size: 15px;
+}
+p{
+    font-size: 14px;
+}
+.chartbox {
+    position: relative;
+    width: calc(100% - 400px);
+}
+
+.chartsetbox {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.stripchart-set {
+    overflow-y: auto;
+    width: 380px;
+    right: 0;
+    position: absolute;
+    height: 100%;
+}
+.coll-href {
+    text-decoration: none
+}
+
+.control-label {
+    font-weight: normal;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.form-group {
+    padding-top: 30px;
+}
+
+.label_two {
+    padding-left: 15px;
+}
+
+#chartset_panel {
+    height: 98%;
+}

@@ -1,0 +1,48 @@
+.btn_green {
+    border-color: #85bb44;
+}
+
+.btn_blue {
+    border-color: #398fcb;
+}
+
+.btn_yellow {
+    border-color: #ffc23d;
+}
+
+.item {
+    border-bottom: 1px dashed #bcbcbc;
+    width: 80%;
+    margin-left: 120px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+}
+
+.button_position {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    margin-top: -17px;
+}
+
+.text_position {
+    line-height: 50px;
+    font-size: 14px;
+}
+
+.btn_margin {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 10px;
+    color: #515151;
+}
+
+.item:hover {
+    border-bottom: 2px solid #108ee9;
+    background-color: #f7fcff;
+}
+
+.btn_red {
+    border-color: #f28686;
+}

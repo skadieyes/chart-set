@@ -1,0 +1,75 @@
+<div class="homeset-body">
+    <div class="homeset-menu">
+
+        <div class="panel panel-default homemenu-box">
+            <form #homemune="ngForm">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading coll-panel-one panel-cst">
+                            <p class="panel-title">
+                                <a class="coll-href">
+                                    标题
+                                </a>
+                            </p>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="form-group title_box">
+                                    <label for="Title_Text" class="col-sm-3 control-label">标题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="Title_Text" required [(ngModel)]="title" name="name" #name="ngModel">
+                                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                                            请填写标题
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading coll-panel-two panel-cst">
+                            <p class="panel-title">
+                                <a class="coll-href">
+                                    模板
+                                </a>
+                            </p>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li *ngFor="let item of menu_items" (click)="itemClick(item)" [ngClass]="item.class" id="item.id"> <a class="a_position">{{item.label}}</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div class="btn_box">
+
+            <button type="submit" nz-button [nzType]="'primary'" [nzSize]="'large'" class="col-sm-12" (click)='Save()' [disabled]="!homemune.form.valid">保存</button>
+
+
+            <button class="col-sm-12" nz-button [nzType]="'default'" [nzSize]="'large'" [routerLink]="['/center/homelist']">返回</button>
+
+        </div>
+    </div>
+
+    <div class="template-box" [ngSwitch]="menu_template_name">
+        <nz-card style="height:100%;margin:30px;">
+            <ng-template #body>
+                <cst-template-1 *ngSwitchCase="'menu_template1'" [homesetlist_edit]="chart_arr"></cst-template-1>
+                <cst-template-2 *ngSwitchCase="'menu_template2'" [homesetlist_edit]="chart_arr"></cst-template-2>
+                <div *ngSwitchCase="'menu_template3'">模板3</div>
+            </ng-template>
+        </nz-card>
+    </div>
+
+</div>

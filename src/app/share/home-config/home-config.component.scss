@@ -1,0 +1,133 @@
+.home-config {
+    height: 100%;
+    width: 100%;
+}
+
+.chart-box {
+    height: 100%;
+    width: 100%;
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+div {
+    padding: 0;
+}
+
+.panel-heading {
+    padding: 10px;
+    color: #515151;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+.panel-margin {
+    padding: 20px;
+}
+
+.panel-box {
+    height: 50%;
+}
+
+.panel-size {
+    height: 100%;
+}
+
+.home-body {
+    position: absolute;
+    top: 65px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.btn-position {
+    position: absolute;
+    right: 50px;
+    margin-top: -6px;
+}
+
+.modal-style {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    margin-top: -200px;
+}
+
+.modal-dialog {
+    height: 100px;
+    width: 60%;
+}
+
+.button-box {
+    padding: 10px;
+}
+
+.body-style {
+    height: 100px;
+    width: 100%;
+}
+
+.modal-title {
+    padding: 10px;
+}
+
+.cst-modal {
+    background-color: #85bb44;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.panel-box {
+    position: relative;
+    width: 50%;
+    height: 50%;
+}
+
+.panel-box_2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.panelbody-box {
+    width: 100%;
+    height: 89%;
+    position: relative;
+}
+
+.ng_modal {
+    width: 100%;
+    height: 100%;
+    top: 20%;
+    z-index: 100000;
+}
+
+.button_position {
+    position: absolute;
+    z-index: 100;
+    top: 10px;
+    right: 20px;
+}
+
+.icon-color {
+    color: #515151;
+}
+
+.loadding-icon {
+    margin: 0 auto;
+    position: absolute;
+    top: 45%;
+    left: 48%;
+    color: #85bb44;
+    z-index: 1111111;
+}

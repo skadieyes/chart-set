@@ -1,0 +1,69 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "project": {
+        "name": "cockpit"
+    },
+    "apps": [{
+        "root": "src",
+        "outDir": "dist",
+        "assets": [
+            "assets",
+            "favicon.ico"
+        ],
+        "index": "index.html",
+        "main": "main.ts",
+        "polyfills": "polyfills.ts",
+        "test": "test.ts",
+        "tsconfig": "tsconfig.app.json",
+        "testTsconfig": "tsconfig.spec.json",
+        "prefix": "app",
+        "styles": [
+            "styles.scss",
+            "assets/scss/app.scss",
+            "../node_modules/prismjs/themes/prism-okaidia.css",
+            "../node_modules/font-awesome/css/font-awesome.min.css",
+            "../node_modules/bootstrap-table/dist/bootstrap-table.min.css",
+            "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+        ],
+        "scripts": [
+            "../node_modules/jquery/dist/jquery.js",
+            "../node_modules/echarts/dist/echarts.js",
+            "../node_modules/echarts/map/js/china.js",
+            "../node_modules/prismjs/prism.js",
+            "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+            "../node_modules/bootstrap-table/dist/bootstrap-table.min.js",
+            "../node_modules/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"
+
+
+        ],
+        "environmentSource": "environments/environment.ts",
+        "environments": {
+            "dev": "environments/environment.ts",
+            "prod": "environments/environment.prod.ts"
+        }
+    }],
+    "e2e": {
+        "protractor": {
+            "config": "./protractor.conf.js"
+        }
+    },
+    "lint": [{
+            "project": "src/tsconfig.app.json"
+        },
+        {
+            "project": "src/tsconfig.spec.json"
+        },
+        {
+            "project": "e2e/tsconfig.e2e.json"
+        }
+    ],
+    "test": {
+        "karma": {
+            "config": "./karma.conf.js"
+        }
+    },
+    "defaults": {
+        "styleExt": "scss",
+        "component": {}
+    }
+}

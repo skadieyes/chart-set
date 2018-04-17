@@ -1,0 +1,35 @@
+
+<div class="list_body col-xs-12">
+    <div class="panel panel-default panel-box" id="list_panel">
+        <div class="panel-heading panel-cst">
+            <p class="panel-title">
+                <i class="fa fa-line-chart"></i> 图表列表
+            </p>
+        </div>
+        <div class="operation">
+            <div class="button-box">
+                <button type="button" class="btn btn-default btn_margin btn_blue" (click)="add()">新增</button>
+            </div>
+        </div>
+
+        <div class="listitems_box overflow">
+            <div class="col-xs-12 list_strip">
+                <div class="col-xs-12 item">
+                    <div class="text_position">
+
+                        <div class="col-xs-2">
+                            标题
+                        </div>
+                        <div class="col-xs-1">
+                            类型
+                        </div>
+                    </div>
+
+                </div>
+                <cst-chart-listitem *ngFor="let chartlistitem of chartlistitems" [chartlistitem]="chartlistitem" (deleteitemEvent)="Deleteitem_ChildEvent($event)" (deleteidEvent)="Deleteid_ChildEvent($event)">
+                </cst-chart-listitem>
+
+            </div>
+        </div>
+
+    </div>

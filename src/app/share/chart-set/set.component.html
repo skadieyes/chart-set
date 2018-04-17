@@ -1,0 +1,17 @@
+<nz-layout class="set-layout">
+    <nz-sider *ngIf="!_edit.flag" [nzWidth]="200" style="background:#fff">
+        <ul nz-menu [nzMode]="'inline'" style="height:100%">
+            <li nz-menu-item *ngFor="let item of menu_items" [ngClass]="item.class" class="menu-child" (click)="itemClick(item)"><i class="fa menu-icon" [ngClass]="item.icon"></i>{{item.label}}</li>
+        </ul>
+    </nz-sider>
+    <nz-content class="set-content">
+        <div [ngClass]="chartmenuclass" [ngSwitch]="menu_chart_name">
+            <cst-linechart-set *ngSwitchCase="'menu_line_chart'"></cst-linechart-set>
+            <cst-gaugechart-set *ngSwitchCase="'menu_gauge_chart'">仪表图配置组件</cst-gaugechart-set>
+            <cst-piechart-set *ngSwitchCase="'menu_pie_chart'">饼图配置组件</cst-piechart-set>
+            <cst-barchart-set *ngSwitchCase="'menu_bar_chart'">柱状图图配置组件</cst-barchart-set>
+            <cst-stripchart-set *ngSwitchCase="'menu_strip_chart'">条形图配置组件</cst-stripchart-set>
+            <cst-mapchart-set *ngSwitchCase="'menu_map_chart'">地图配置组件</cst-mapchart-set>
+        </div>
+    </nz-content>
+</nz-layout>

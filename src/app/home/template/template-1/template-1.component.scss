@@ -1,0 +1,76 @@
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+div {
+    padding: 0;
+}
+
+.panel-heading {
+    padding: 10px;
+    color: #515151;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+.panel-margin {
+    padding: 30px 10px;
+}
+
+.panel-box {
+    border: none;
+}
+
+.panel-size {
+    height: 100%;
+}
+
+.home-body {
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+.panel-box{
+    margin: 0;
+}
+.btn-position {
+    position: absolute;
+    right: 50px;
+    margin-top: -6px;
+}
+
+.modal-style {
+    width: 1200px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    margin-top: -300px;
+}
+
+.body-style {
+    height: 400px;
+}
+
+.panel-box {
+    position: relative;
+    width: 50%;
+    height: 40%;
+}
+
+.panel-box_2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.panelbody-box {
+    width: 100%;
+    height: 89%;
+    position: relative;
+}

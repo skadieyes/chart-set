@@ -1,0 +1,55 @@
+<div bsModal #childModal="bs-modal" class="modal fade source-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width: 730px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fa fa-list-alt fa-lg"></i>&nbsp;数据源配置
+                <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+
+            <div class="modal-body bodystyle">
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="form-style">
+                    <div class="form-group">
+                        <label for="SOURCE_NAME" class="col-sm-2 control-label"><p >数据名称</p></label>
+                        <div class="col-sm-9">
+                            <input type="text" id="SOURCE_NAME" placeholder="请输入数据源名称" class="form-control" required [formControl]="myForm.controls['SOURCE_NAME']">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SOURCE_TYPE" class="col-sm-2 control-label"><p >数据类型</p></label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="SOURCE_TYPE" [formControl]="myForm.controls['SOURCE_TYPE']" name="SOURCE_TYPE">
+    <option *ngFor="let SOURCE_TYPE of SOURCE_TYPEs" [value]="SOURCE_TYPE.value" >{{SOURCE_TYPE.name}}</option>
+  </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SOURCE_EXPRESSION" class="col-sm-2 control-label"><p >表达式</p></label>
+                        <div class="col-sm-9">
+                            <input type="text" id="SOURCE_EXPRESSION" required placeholder="请输入查询表达式" class="form-control" [formControl]="myForm.controls['SOURCE_EXPRESSION']">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SOURCE_PARAMS" class="col-sm-2 control-label"><p >参数</p></label>
+                        <div class="col-sm-9">
+                            <textarea rows="4" id="SOURCE_PARAMS" required placeholder="请输入数据源参数" class="form-control" [formControl]="myForm.controls['SOURCE_PARAMS']">
+                            </textarea>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary foot-button" (click)="onSubmit(myForm.value)" [disabled]="!myForm.valid"> 保存 </button>
+                <button type="submit" class="btn btn-warning foot-button" (click)="hideChildModal()"> 取消 </button>
+            </div>
+        </div>
+    </div>
+</div>
